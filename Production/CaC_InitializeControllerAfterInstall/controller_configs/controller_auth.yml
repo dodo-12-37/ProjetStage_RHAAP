@@ -1,0 +1,9 @@
+---
+
+# Se référer au fichier vault.yml.
+controller_hostname: "{{ vault_controller_hostname }}"
+controller_username: "{{ vault_controller_username }}"
+controller_password: "{{ vault_controller_password }}"
+controller_validate_certs: "{{ vault_controller_validate_certs | bool }}"
+
+...

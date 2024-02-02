@@ -1,0 +1,34 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_execution_environments:
+#   - name: "my_second_ee_image"
+#     # new_name: "my_second_ee_image2"
+#     description: "my_second_ee_image"
+#     image: "privateHubHost.local/my_second_ee_image:latest"
+#     organization: "Ville de Quebec"
+#     credential: "PrivateHub-ADM-ID203290"
+#     pull: "always"
+#     state: present
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+controller_execution_environments:  # À décommenter au besoin...
+  - name: "vdq_default_ee"
+    description: "Image EE principale pour l'organisation de la Ville De Québec."
+    organization: "Ville de Quebec"
+    image: "privateHubHost.local/vdq_default_ee:latest"
+    pull: "always"
+    credential: "Automation Hub Container Registry"
+    state: present
+
+  - name: "my_second_ee_image"
+    description: "Images Docker de TEST servant à exécuter les tâches de RHAAP."
+    organization: "Ville de Quebec"
+    image: "privateHubHost.local/my_second_ee_image:latest"
+    pull: "always"
+    credential: "Automation Hub Container Registry"
+    state: present
+
+...

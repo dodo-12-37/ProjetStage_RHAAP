@@ -1,0 +1,49 @@
+---
+workflows_vars:
+  - name: host2119:taskQaction
+    description: "TOUS LES JOURS aux 30 minutes de 6h00 à 23h59 (AAP)"
+    work_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      email_recipients: ""
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    node_vars:
+      - name: script/groupetasknv taskqaction1r
+        job_vars:
+          script_path: /home/folders/script/groupetasknv taskqaction1r
+        success_nodes: []
+        failure_nodes: []
+        always_nodes:
+          - script/groupeat taskaction2c
+          - script/groupetasknv taskqaction2r
+      - name: script/groupeat taskaction2c
+        job_vars:
+          script_path: /home/folders/script/groupeat taskaction2c
+        success_nodes: []
+        failure_nodes: []
+        always_nodes: []
+      - name: script/groupetasknv taskqaction2r
+        job_vars:
+          script_path: /home/folders/script/groupetasknv taskqaction2r
+        success_nodes: []
+        failure_nodes: []
+        always_nodes:
+          - script/groupetasknv taskqaction1r
+      - name: script/groupetasknv taskqaction1r
+        job_vars:
+          script_path: /home/folders/script/groupetasknv taskqaction1r
+        success_nodes: []
+        failure_nodes: []
+        always_nodes: []
+    schedules:
+      - name: host2119:taskQaction-scheduled
+        description: "TOUS LES JOURS aux 30 minutes de 6h00 à 23h59 (AAP)"
+        starting_hour: "06:00:00"
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+            byminute: '0, 30'
+            byhour: '6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 18, 20, 21, 22, 23'
+
+...

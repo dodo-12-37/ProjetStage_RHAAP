@@ -1,0 +1,49 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_user_accounts:
+# - username: "DemoUser"
+#   # new_username: "DemoUser2"
+#   password: "{{ controller_user_default_password }}"
+#   email: "Demo.User@email.com"
+#   first_name: "Demo"
+#   last_name: "User"
+#   superuser: "false"  # or is_superuser: false
+#   auditor: "False"  # or is_groupestem_auditor: false
+#   organization: ""
+#   state: present  # or absent
+#   update_secrets: false
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+controller_user_accounts:  # À décommenter au besoin...
+  - username: "User"
+    password: "{{ vault_users_passwords.user_DenisDesmarais }}"
+    email: "User@email.com"
+    first_name: "Denis"
+    last_name: "Desmarais"
+    auditor: "False"
+    superuser: "True"
+    update_secrets: true
+    state: present
+
+  - username: "API-AutomatedUser"
+    password: "{{ vault_users_passwords.user_APIAutomatedUser }}"
+    email: "dominique.lebrun@email.com"
+    first_name: "Automated"
+    last_name: "User"
+    auditor: "False"
+    superuser: "True"
+    update_secrets: true
+
+  - username: "test-postinstall-automatique"
+    password: "{{ vault_users_passwords.user_APIAutomatedUser }}"
+    email: "dominique.lebrun@email.com"
+    first_name: "postinstall"
+    last_name: "automatique"
+    auditor: "True"
+    superuser: "False"
+    update_secrets: true
+
+...

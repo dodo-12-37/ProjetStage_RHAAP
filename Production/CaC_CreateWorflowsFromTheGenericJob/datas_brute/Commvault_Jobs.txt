@@ -1,0 +1,121 @@
+satelliteHost-taskEngineUpgrade_DEV|Le 1er du mois 8h00 (AAP)|satelliteHost|ansible|/usr/bin/ansible-playbook  -lgroupe6,groupe9 /home/ansible/bloc/bloc_upgrade.yml|
+satelliteHost-taskEngineUpgrade_PROD|Le 15 du mois 8h00 (AAP)|satelliteHost|ansible|/usr/bin/ansible-playbook  -lgroupe6,groupe9 /home/ansible/bloc/bloc_upgrade.yml|
+host1930:CHMOD_task_REPORTS|TOUS LES JOURS aux 5 minutes (AAP)|host1930|user|/home/task/script/chmod_task_reports|
+host1930:task_AS|TOUS LES JOURS aux 10 minutes (AAP)|host1930|user|/home/folders/script/groupetask task_as|
+host1930:task_EPUR_task|TOUS LES JOURS 20h30 (AAP)|host1930|user|/home/folders/script/groupetask task_epur_task|
+host1930:task_GESTION_EGE_task|TOUS LES JOURS 12h00 et 17h00 (AAP)|host1930|user|/home/folders/script/groupetask task_gestion_eqe_task|user@email.com
+host1930:task_GR|LUNDI A VENDREDI 00h00 (AAP)|host1930|user|/home/folders/script/groupetask task_gr|
+host1930:task_INIT_GESTION_ERREUR|TOUS Les JOURS aux heures (AAP)|host1930|user|/home/folders/script/groupetask task_init_gestion_erreur|
+host1930:task_INIT_GESTION_MESSAGE|MERCREDI 03h00 (AAP)|host1930|user|/home/folders/script/groupetask task_init_gestion_message|
+host1930:task_INIT_MAJ_PIgroupeAGE_REC|TOUS LES JOURS 06h00 (AAP)|host1930|user|/home/folders/script/groupetask task_init_maj_pigroupeage_rec|
+host1930:task_TRANSFERT_DGSP|10 du mois � 06h00(AAP)|host1930|user|/home/folders/script/groupetask task_transfert_dgsp|
+host1930:task_TRS_DOSSIERS_CRIMINELS|TOUS LES JOURS aux 10 minutes jusqu'� 23h55 (AAP)|host1930|task|/home/folders/script/groupetask task_trs_dossiers_criminels.sh|
+host1930:taskSJOUR|TOUS LES JOURS 02h00 (AAP)|host1930|user|/home/folders/script/groupetask tasksjour|
+host1930:MENAGE_TMP_FRMWEB.OUT|TOUS LES JOURS au 30 minutes d�truit fichiers plus vieux que 6h (AAP)|host1930|user|"/usr/bin/find /tmp  -name 'frmweb*.out' -mmin +360 -exec /usr/bin/rm {} \;"|
+host1930:ORS_GENFORMS_FMW12C|TOUS LES JOURS aux 5 minutes (AAP)|host1930|user|/taskweb/fmw_transf/ors_genforms_fmw12c task_verification|
+host2119:ACPT_task_CHARGE_TBL|LUNDI A VENDREDI 06h45(AAP)|host2119|user|/home/folders/script/groupeacpt acpt_task_charge_tbl|
+host2119:task_CLASSEMENT_BATCH_task|LUNDI A VENDREDI AUX 2h de 08h00 � 18h01 (AAP)|host211919|task|/home/folders/script/groupetask task_classement_batch.sh|
+host2119:task_task_UP_IDF_ID_task|LUNDI A VENDREDI 21h00 (AAP)|host2119|user|/home/folders/script/folders_task_up_idf_id_task|
+host1930:task_LOCK|TOUS LES JOURS aux 5 minutes jusqu'� 23h30 (AAP)|host1930|user|/home/folders/script/groupetask task_lock|
+host2119:task_MAJ_TRX_MINISTERE|LUNDI A VENDREDI 19h45 (AAP)|host2119|user|/home/folders/script/groupetask maj_trx_ministere ptaskp1|
+host2119:AUTORISATION_AUTO_DOSSIERS_task|TOUS LES JOURS 01h00 (AAP)|host2119|user|/home/folders/script/groupetask autorisation_auto_dossiers.sh|
+host2119:BACKUP_task_DIFFERENTIAL|TOUS LES VENDREDI 16h30 (SAUF LE PREMIER VENDREDI DU MOIS) (AAP)|host2119|user|/home/task/lance_backup_task.sh DIFFERENTIAL 60|
+host2119:BACKUP_task_FULL|PREMIER VENDREDI DU MOIS 16h30 (AAP)|host2119|user|/home/task/lance_backup_task.sh FULL 60|
+host2119:BACKUP_task_INCREMENTAL|LUNDI AU JEUDI, SAMEDI et DIMANCHE 16h30 (AAP)|host2119|user|/home/task/lance_backup_task.sh INCREMENTAL 60|
+host2119:BAT1000R_task|DIMANCHE A JEUDI 20h00 (AAP)|host2119|task|/home/folders/script/groupetask bat1000r.sh|
+host2119:CDN_task_MAJ_DE_task|LUNDI A VENDREDI 06h45 (AAP)|host2119|user|/home/folders/script/groupecdn cdn_task_maj_de_task|
+host2119:CHARtaskENT_ADRESSE_PERMIS_VIGNETTE_task|LUNDI 07h00 (AAP)|host2119|task|/home/folders/script/groupetask chartaskent_adresse_permis_vignette.sh|
+host2119:CHARtaskENT_COMPTEURS_EAUX_task|LUNDI 06h30 (AAP)|host2119|task|/home/folders/script/groupetask chartaskent_compteurs_eaux.sh|
+host2119:CHARtaskENT_PERMIS_BATCH_task|MARDI 22h00 (AAP)|host2119|task|/home/folders/script/groupetask chartaskent_permis_batch.sh|
+host2119:CHARtaskENT_POUR_BO_2019_task|DIMANCHE A VENDREDI 19h00 (AAP)|host2119|task|/home/folders/script/groupetask Chartaskent_pour_BO_2019.sh|
+host2119:CHARtaskENT_POUR_GPLUS_task|LUNDI A SAMEDI 04h00 (AAP)|host2119|task|/home/folders/script/groupetask Chartaskent_pour_gplus.sh|
+host2119:CHARtaskENT_PQ_ENDROIT_GEO_T_task|host2119:CHARtaskENT_PQ_ENDROIT_GEO_T_task|host2119|user|/home/folders/script/groupetask chartaskent_pq_endroit_geo_t.sh|
+host2119:CHARtaskENT_PVQ_ADRESSE_task|DIMANCHE A JEUDI 22h30 (AAP)|host2119|task|/home/folders/script/groupetask chartaskent_pvq_adresse.sh|
+host2119:CHARtaskENT_WEBI_INVENTAIRE_PERMIS_task|LUNDI A JEUDI 03h00 (AAP)|host2119|task|/home/folders/script/groupetask chartaskent_webi_inventaire_permis.sh|
+host2119:CHAU11_S_task_TRANS_bloc|TOUS LES JOURS aux 10 minutes (AAP)|host2119|user|/home/folders/script/groupetask task_transf_data_bloc|
+host2119:CHAU11_S_task_TRANS_bloc |TOUS LES JOURS aux 10 minutes (AAP)|host2119|user|/home/folders/script/groupeeqm task_transf_data_bloc|
+host2119:CHAU11_SVP_EXECUTER_SCRIPT_PROC|TOUS LES JOURS 03h00 (AAP)|host2119|user|/home/folders/script/groupesvp svp_executer_script_proc|
+host2119:CHAU11_TIMS_MAJ_INDEX_PLAN|TOUS LES JOURS 00h00 (AAP)|host2119|user|/home/folders/script/groupesgi tims_maj_index_plan|
+host2119:CHAU11_TRS_CONSTAT_ELECTRO|TOUS LES JOURS aux 2 heures entre 8h00 et 18h00 + 23h30 (AAP)|host2119|sitij|/home/folders/script/groupesitij trs_constat_electro.sh|user@email.com
+host2119:CHAU11_TRS_groupe|TOUS LES JOURS 00h30 (AAP)|host2119|sitij|/home/folders/script/groupesitij trs_groupe.sh|user@email.com
+host2119:CHAU11_TRS_REGLEMENTS_OV|TOUS LES JOURS 00h02 (AAP)|host2119|sitij|/home/folders/script/groupesitij trs_reglements_ov.sh|user@email.com
+host2119:CHAU11_TRS_UNICITE_TOPO|TOUS LES JOURS 05h30 (AAP)|host2119|user|/home/folders/script/groupesitij trs_unicite_topo.sh|user@email.com
+host2119:CUPS_groupeNCHRO_PRINTERS|TOUS LE JOURS 05h00 (AAP)|host2119|user|/home/folders/script/cups_groupenchro_printers.sh|
+host2119:task5160R_task|1er du MOIS 07h00 (AAP)|host2119|task|/home/folders/script/groupetask task5160r.sh|
+host2119:DR_task_MAJ_DE_task|LUNDI A VENDREDI 06h45 (AAP)|host2119|user|/home/folders/script/groupedr dr_task_maj_de_task|
+host2119:EXTRACTION_DEPOT_COMPARATATIF_2016_task|TOUS LES JOURS 18h30 (AAP)|host2119|task|/home/folders/script/groupetask extraction_depot_comparatif_2016.sh|
+host2119:EXTRACTION_ROLE_COURANT|TOUS LES JOURS 02h15 (AAP)|host2119|task|/home/folders/script/groupetask extraction_role_courant.sh|"User@email.com;user@email.com"
+host2119:EXTRACTION_ROLE_COURANT_SEFA| TOUS LES JOURS 00h01 (AAP)|host2119|task|/home/folders/script/groupetask extraction_role_courant_sefa.sh|User@email.com
+host2119:EXTRACTION_TRANSFERT_SERVICEENLIGNE_task|LUNDI 08h00 (AAP)|host2119|user|/home/folders/script/groupetask extraction_transfer_ServiceEnLigne.sh|
+host2119:groupe_task_COMPLETE_INFO_groupe|LUNDI A VENDREDI 06h45 (AAP)|host2119|user|/home/folders/script/groupegroupe groupe_task_complete_info_groupe|
+host2119:task_task_MAJ_DE_task|LUNDI A VENDREDI 06h15 (AAP)|host2119|user|/home/folders/script/groupetask task_task_maj_de_task|
+host2119:task_task_MAJ_DE_task|LUNDI A VENDREDI 06h45 (AAP)|host2119|user|/home/folders/script/groupetask task_task_maj_de_task|
+host2119:GP_CHARtaskENT|LUNDI A 23h00 (AAP)|host2119|user|/home/folders/script/groupegp gp_chartaskent|
+host2119:task_task_MAJ_task|LUNDI A VENDREDI 05h30 (AAP)|host2119|user|/home/folders/script/groupetask task_task_maj_task|
+host2119:task_AVIS_ERREUR_BATCH|TOUS LES JOURS aux 10 minutes (AAP)|host2119|user|/home/folders/script/groupeeqm task_avis_erreur_batch|
+host2119:taskACTIFOT|host2119:taskACTIFOT|host2119|user|/home/folders/script/groupeeqm taskactifot|
+host2119:IMPRESSION_CERTIFICATS_task|LUNDI A VENDREDI 05h00 (AAP)|host2119|task|/home/folders/script/groupetask impression_certificats.sh|
+host2119:MAJ_DATE_groupeSTEME(task_task)_task|LUNDI A SAMEDI 00h10 (AAP)|host2119|task_task|/home/task_task/script/maj_date_groupesteme.sh|
+host2119:MAJ_DATE_groupeSTEME_task|TOUS LES JOURS 00h15 (AAP)|host2119|task|/home/folders/script/groupetask maj_date_groupesteme.sh|
+host2119:task_XML_PROD_task|LUNDI A VENDREDI 11H30 (AAP)|host2119|task|/home/task/script/task_XML_PROD.sh|
+host2119:task_MAJ_FIN|LUNDI A VENDREDI 7h20 (AAP)|host2119|user|/home/folders/script/groupetask task_maj_fin|
+host2119:MRQ_task_MAJ_DE_task|LUNDI A VENDREDI 06h45 (AAP)|host2119|user|/home/folders/script/groupemrq mrq_task_maj_de_task|
+host2119:OTSEQM|TOUS LES JOURS 3h00 (AAP)|host2119|user|/home/folders/script/groupeot otseqm|
+host2119:task_INS_EXTRACTION_PERMIS|LUNDI 22h00 (AAP)|host2119|user|/home/folders/script/groupepvq task_ins_extraction_permis|
+host2119:task_TRANSFERT_CUQ|MARDI 4h00 (AAP)|host2119|user|/home/folders/script/groupepvq task_transfert_cuq|
+host2119:PROC_COND_EGOUT_DELTAH_GEOPROD|TOUS LES JOURS 22h00 (AAP)|host2119|user|/home/folders/script/groupesgi proc_cond_egout_deltah|
+host2119:task_task_MAJ_ARD_CP|LUNDI A VENDREDI 06h45 (AAP)|host2119|user|/home/folders/script/groupetask task_task_maj_ard_cp|
+host2119:RAPPORTS_BATCH_task (task)|LUNDI A VENDREDI 06h00 (AAP)|host2119|task|/home/folders/script/groupetask rapports_batch_task.sh|
+host2119:RAPPORTS_BATCH_task_task|DIMANCHE A JEUDI 06h00 (AAP)|host2119|task_task|/home/task_task/script/rapports_batch_task.sh|
+host2119:RMS_PQ_CARTO|LUNDI A VENDREDI 0h00 (AAP)|host2119|user|/home/rms/script/rms_pq_carto.sh|
+host2119:S_DA_GET_ET_LOAD_CODES_POSTEAUX |15 du mois 00h01 (AAP)|host2119|da|"/home/da/script/da_pc_ftp.sh;/home/da/script/da_pc_sqlloader.sh"|
+host2119:S_taskStask_task|TOUS LES JOURS aux 2 heures entre 8h00 et 18h01 (AAP)|host2119|task|"/home/folders/script/groupetask task_reception_batch.sh;/home/folders/script/groupetask task_chartaskent_batch.sh"|
+host2119:S_OTSCOUT|LUNDI 04h15 (AAP)|host2119|user|"/home/folders/script/groupeot otscout;/home/folders/script/groupeeqm eqmsjum"|
+host2119:S_PQ_INS_END_GEO_T_SESSION |DIMANCHE A JEUDI 18h00 (AAP)|host2119|user|/home/folders/script/groupepvq task_ins_end_geo_t|
+host2119:task_task_MAJ_DE_task|LUNDI A VENDREDI 06h45 (AAP)|host2119|user|/home/folders/script/groupetask task_task_maj_de_task|
+host2119:STATS|TOUS LES JOURS 6h00 (AAP)|host2119|user|/home/STATS/stats.sh|User@email.com
+host2119:TFP_MENAGE_IMP_ET_ARCHIVES|TOUS LES JOURS 00h01 (AAP)|host2119|user|/home/folders/script/groupetfp TFP_MENAGE_IMP_ET_ARCHIVES.sh|User@email.com
+host2119:TRANSFERT_TFP_task|LUNDI A VENDREDI 06h00 (AAP)|host2119|task|/home/folders/script/groupetask transfert_tfp.sh|
+host2119:VENTES_TERRAINS_task|TOUS LES JOURS 21h00 (AAP)|host2119|task|/home/folders/script/groupetask ventes_terrains.sh|
+host2119:taskQDIX|TOUS LES JOURS aux 10 minutes � partir 00h03 - user (AAP)|host211919|user|/home/folders/script/groupetasknv taskqdix|
+host2119:taskQETUDI|TOUS LES JOURS 22h00 - user (AAP)|host2119|user|/home/folders/script/groupetasknv taskqetudi|
+host2119:taskQETUDIR|TOUS LES JOURS 01h30 (AAP)|host2119|user|/home/folders/script/groupetasknv taskqetudir|
+host2119:taskQGTTP|TOUS LES JOURS aux heures - user (AAP)|host2119|user|/home/folders/script/groupetasknv taskqgttp|
+host2119:taskQHEBDO|SAMEDI 19h00 (AAP) user|host2119|user|/home/folders/script/groupetasknv taskqhebdo|
+host2119:taskQMATIN|TOUS LES JOURS 22h00 (AAP) user|host2119|user|/home/folders/script/groupetasknv taskqmatin|
+host2119:taskQMIDI|TOUS LES JOURS 12h00 - user (AAP)|host2119|user|/home/folders/script/groupetasknv taskqmidi|
+host2119:taskQQUART|LUNDI A VENDREDI aux 15 minutes entre 07h05 et 17h16 user (AAP)|host2119|user|/home/folders/script/groupetasknv taskqquart|
+host2240:CHECK_STATUS|TOUS LES JOURS aux 3 minutes jusqu'� 23h50 (AAP)|host2240|mqm|/home/mqm/Config/check_status|
+host2240:task_MQ_CRPQ|TOUS LES JOURS au 30 minutes (AAP)|host2240|user|/home/folders/script/groupetask task_mq_crpq|
+host1169:groupeSERASE|LUNDI A VENDREDI 05h00 (AAP)|host1169|user|/home/folders/script/groupegroupe groupeserase|
+host1169:groupeStask_ABONNEMENT|1er DU MOIS 06h00 (AAP)|host1169|user|/home/folders/script/groupegroupe groupestask_abonnement|
+host2028:EXPORT_task|TOUS LES JOURS 03h00 (AAP)|host2028|user|/home/user/script/task_expdp.sh task_p1 /home/user/script/parfiles/expdp_task_p1.par /exportjour/task|
+host2028:EXPORT_taskP|TOUS LES JOURS 03h00 (AAP)|host2028|user|/home/user/script/task_expdp.sh taskp_p1 /home/user/script/parfiles/expdp_taskp_p1.par /exportjour/taskp|
+host2029:EXPORT_GEOPRQ1|TOUS LES JOURS 03h00 (AAP)|host2029|user|/home/user/script/task_expdp.sh geoprq1_p2 /home/user/script/parfiles/expdp_geoprq1_p2.par /exportjour/geoprq1|
+host2040:EXPORT_GEOPROD|TOUS LES JOURS 03h00 (AAP)|host2040|user|/home/user/script/task_expdp.sh geoprod_p1 /home/user/script/parfiles/expdp_geoprod_p1.par /exportjour/geoprod|user@email.com
+host2042:EXPORT_CHAU11|TOUS LES JOURS 03h00 (AAP)|host2042|user|/home/user/script/task_expdp.sh chau11_p3 /home/user/script/parfiles/expdp_chau11_p3.par /exportjour/chau11|
+host2044:EXPORT_MAXPROD|TOUS LES JOURS 03h00 (AAP)|host2044|user|/home/user/script/task_expdp.sh maxprod_p3 /home/user/script/parfiles/expdp_maxprod_p3.par /exportjour/maxprod|
+host2207:task_TRANSFERTS_ECHANGE_LEV|TOUS LES JOURS aux 20 minutes (AAP)|host2207|tasklevis|/home/task_lev_prd/script/task_transferts_echange_lev|
+host2236:EXPORT_CDB|TOUS LES JOURS 04h00 (AAP)|host2236|user|/home/user/script/backupPDB.py|
+host2236:EXPORT_EP11|TOUS LES JOURS 03h00 (AAP)|host2236|user|/home/user/script/task_expdp.sh ep11_s /home/user/script/parfiles/expdp_ep11_s.par /exportjour/ep11|
+host2304:EXPORT_BD_taskQP|TOUS LES JOURS 03h00 (AAP)|host2304|user|/home/user/script/task_expdp.sh taskqp /home/user/script/parfiles/expdp_taskqp.par /exportbd/taskqp|
+host2304:EXPORT_BD_taskQPREC|TOUS LES JOURS 21h00 (AAP)|host2304|user|/home/user/script/task_expdp.sh taskqprec /home/user/script/parfiles/expdp_taskqprec.par /exportbd/taskqprec|
+host2304:ORS_EPURE_user|LUNDI ET VENDREDI 00h00 (AAP)|host2304|user|/home/folders/script/groupeuser ors_epure_user|
+host2304:S_task_STAT|SAMEDI 05h30 (AAP)|host2304|user|"/home/folders/script/groupeuser ors_gen_stats;/home/folders/script/groupeuser ors_exec_stats"|
+host2304:S_groupeESLOGJ|LUNDI A VENDREDI 06h30 (AAP)|host2304|user|"/home/folders/script/groupegroupe groupesgroupe;/home/folders/script/groupegroupe groupeslog1"|
+host2304:task_RELEVES_EMPLOI|TOUS LES JOURS aux 10 minutes entre 07h00 et 17h01 (AAP)|host2304|user|/home/folders/script/groupetasknv task_releves_emploi|
+host2304:taskQtaskHCR|TOUS LES JOURS 02h30 - user (AAP)|host2304|user|/home/folders/script/groupetasknv taskqtaskhcr|
+host2482-EXPORT_BD_taskPRS1|TOUS LES JOURS 03h00 (AAP)|host2482|user|/home/user/script/task_expdp.sh taskprs1 /home/user/script/parfiles/expdp_taskprs1.par /exportbd/taskprs1|
+host2482-EXPORT_BD_taskSP2|TOUS LES JOURS 03h00 (AAP)|host2482|user|/home/user/script/task_expdp.sh tasksp2 /home/user/script/parfiles/expdp_tasksp2.par /exportbd/tasksp2|
+host2482:task_FTP_EMPLOYES_SHER|LUNDI A VENDREDI 16h30 (AAP)|host2482|user|/home/folders/script/groupetasksh task_ftp_employes_sher|
+host2482:task_TRANSFERT_FTP3_SHER|TOUS LES JOURS aux 15 minutes (AAP)|host2482|user|/home/task_she_prd/script/task_transferts_ftp3_sher|
+host1582:STOP_START_FMW_DIMANCHE|TOUS LES DIMANCHE 09h00 (AAP)|host1582|user|/home/user/script/stop_start_fmw_dimanche.sh|
+host2026:MAJ_ROLE_GEOMATIQUE|TOUS LES JOURS 18h20 (AAP)|host2026|user|/home/folders/script/groupesde maj_roles_geomatique|
+host2050:MAJ_DATE_groupeSTEME(task)|LUNDI A VENDREDI 06h00 (AAP)|host2050|task|/home/task/script/maj_date_groupesteme.sh|
+host2052:EXPORT_CDB|TOUS LES JOURS 04h00 (AAP)|host2052|user|/home/user/script/backupPDB.py|
+host2052:PVQ_SESAME|TOUS LES JOURS aux 5 minutes (AAP)|host2052|user|/home/folders/script/groupepvq pvq_sesame|
+host2167:ORS_EBS_REFRESH_ALL|MERCREDI 0h30 (AAP)|host2167|user|/home/user/script/ebs_refresh/ors_ebs_refresh_all|User@email.com
+host2307:STOP_START_ALL_SPOOLER_task|TOUS LES JOURS 06h00 (AAP)|host2307|tasknv|"/home/user/script/stop_spooler_task_QUE_DEV_CV;/home/user/script/start_spooler_task_QUE_DEV_CV"|
+host2464:STOP_START_ALL_SPOOLER_task|TOUS LES JOURS 06h00 (AAP)|host2464|tasksher|"/home/user/script/stop_spooler_task_SHE_TST_CV;/home/user/script/start_spooler_task_SHE_TST_CV"|
+host0855:VALIDATIONBDDEV|TOUS LES JOURS 03h00 (AAP)|host0855|user|/home/user/script/validation/validationBdDev.sh|
+host0855:VALIDATIONBDPROD|TOUS LES JOURS 03h00 (AAP)|host0855|user|/home/user/script/validation/validationBdProd.sh|

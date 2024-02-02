@@ -1,0 +1,32 @@
+---
+# Commande d'exécution :
+#
+# ansible-playbook configureController.yml --ask-vault-pass
+#
+- name: Configure automation controller
+  gather_facts: false
+  # hosts: controllerHost.local
+  hosts: localhost
+  connection: local
+
+  vars_files:
+    - vault.yml  # Contient le mot de passe pour déchiffrer le fichier vault
+
+  vars:
+    # name_prefix: "|PROD|-"
+    name_prefix: ""
+    controller_user_default_password: "{{ vault_controller_user_default_password | default('ChangeMe') }}"
+    # controller_configuration_users_enforce_defaults: true
+    # controller_configuration_enforce_defaults: true
+    # controller_configuration_user_secure_logging: false
+    # controller_configuration_secure_logging: false
+
+  pre_tasks:
+    - name: Include vars from controller_configs directory
+      ansible.builtin.include_vars:
+        dir: ./controller_configs
+        extensions: ["yml", "yaml"]
+  roles:
+    - infra.controller_configuration.dispatch
+
+...

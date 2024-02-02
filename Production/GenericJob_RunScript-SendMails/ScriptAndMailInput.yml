@@ -1,0 +1,81 @@
+---
+# Commande d'exécution :
+#
+# ansible-playbook ScriptAndMailInput.yml
+#
+- name: Exécuter le script et envoyer un email en fonction des entrées de l'utilisateur
+  hosts: "{{ target_hosts }}"
+  remote_user: ansible
+
+  vars:
+    success_count: 0  # Non fonctionnel pour le moment...
+    failure_count: 0  # Non fonctionnel pour le moment...
+    count_email_recipients: "{{ email_recipients | regex_findall('@') | length }}"
+
+  vars_prompt:
+    - name: target_hosts
+      prompt: "Entrez une liste de cibles (Hosts) séparées par des virgules. (Satellite)"
+      default: "Satellite"
+      # default: "controllerHost.local"
+      private: false
+
+    - name: user_to_execute_task
+      prompt: "Utilisateur pour exécuter la tâche sur l'ordinateur distant. (ansible)"
+      default: "ansible"
+      private: false
+
+    - name: script_path
+      prompt: "Entrez le chemin (path) vers le script. (null)"
+      # default: "/home/ansible/shares/cree_csv.sh"
+      default: ""
+      private: false
+
+    - name: email_recipients
+      prompt: "Entrez une liste d'adresses email séparées par des virgules. (User@email.com)"
+      default: "Denis Desmarais <User@email.com>"
+      # default: ""
+      private: false
+
+    - name: send_email_on_success
+      prompt: "Envoyer un email en cas de succès du script ? (false)"
+      default: false
+      private: false
+
+    - name: send_email_on_failure
+      prompt: "Envoyer un email en cas d'échec du script ? (true)"
+      default: true
+      private: false
+
+  tasks:
+    # - name: Debug count_email_recipients
+    #   ansible.builtin.debug:
+    #     var: count_email_recipients | int
+
+    - name: Exécuter le script fourni par l'utilisateur.
+      ansible.builtin.command: "{{ script_path }}"
+      register: script_result
+      ignore_errors: true  # Continuer l'exécution même si cette tâche échoue
+      become: true
+      become_user: "{{ user_to_execute_task }}"
+
+    - name: Envoyer un seul email pour toutes les cibles avec html_mail_template_all_hosts.j2.
+      community.general.mail:
+        host: smtp.ville.quebec.qc.ca
+        to: "{{ email_recipients }}"
+        from: "Automate Ansible Platform <Application.groupestemeSauvegarde@email.com>"
+        subject: "Résumé d'exécution : {{ target_hosts }}"
+        port: 25
+        subtype: html
+        charset: utf8
+        body: "{{ lookup('template', 'templates/html_mail_template_all_hosts.j2') }}"
+      when:
+        - (send_email_on_success | bool and script_result.rc == 0) or (send_email_on_failure | bool and script_result.rc != 0)
+        - count_email_recipients | int >= 1
+      delegate_to: controllerHost.local
+      run_once: true
+
+    - name: Fait échouer le playbook si l'exécution du script à échoué, mais après l'envois du courriel.
+      ansible.builtin.fail: msg="Exécution du script fourni par l'utilisateur à échoué."
+      when: "'No such file or directory' in script_result.msg or 'FAILED' in script_result.stderr or 'FAILED' in script_result.stdout"
+
+...

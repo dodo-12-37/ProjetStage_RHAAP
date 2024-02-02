@@ -1,0 +1,2176 @@
+---
+jobTemplates_vars:
+  - name: satelliteHost:CREE_SHARE_LIST
+    description: "TOUS LES VENDREDI à 12h00 (AAP)"
+    job_vars:
+      target_hosts: satelliteHost.local
+      user_to_execute_task: user
+      script_path: /home/ansible/shares/cree_csv.sh
+      email_recipients: "User@email.com"
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: satelliteHost:CREE_SHARE_LIST-schedule
+        description: "TOUS LES VENDREDI à 12h00 (AAP)"
+        starting_hour: '12:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'friday'
+
+  - name: satelliteHost-taskEngineUpgrade_DEV
+    description: "Le 1er du mois à 8h00 (AAP)"
+    job_vars:
+      target_hosts: satelliteHost.local
+      user_to_execute_task: user
+      script_path: /usr/bin/ansible-playbook  -lgroupe6,groupe9 /home/ansible/bloc/bloc_upgrade.yml
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: satelliteHost-taskEngineUpgrade_DEV-schedule
+        description: Le 1er du mois à 8h00 (AAP)
+        starting_hour: '08:00:00'
+        rrules_params:
+          - frequency: 'month'
+            interval: 1
+            bymonthday: 1
+
+  - name: satelliteHost-taskEngineUpgrade_PROD
+    description: "Le 15 du mois à 8h00 (AAP)"
+    job_vars:
+      target_hosts: satelliteHost.local
+      user_to_execute_task: user
+      script_path: /usr/bin/ansible-playbook  -lgroupe6,groupe9 /home/ansible/bloc/bloc_upgrade.yml
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: satelliteHost-taskEngineUpgrade_PROD-schedule
+        description: Le 15 du mois à 8h00 (AAP)
+        starting_hour: '08:00:00'
+        rrules_params:
+          - frequency: 'month'
+            interval: 1
+            bymonthday: 15
+
+  - name: host1930:CHMOD_task_REPORTS
+    description: "TOUS LES JOURS aux 5 minutes (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: /home/task/script/chmod_task_reports
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:CHMOD_task_REPORTS-schedule
+        description: TOUS LES JOURS aux 5 minutes (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 5
+
+  - name: host1930:task_AS
+    description: "TOUS LES JOURS aux 10 minutes (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_as
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:task_AS-schedule
+        description: TOUS LES JOURS aux 10 minutes (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 10
+
+  - name: host1930:task_EPUR_task
+    description: "TOUS LES JOURS à 20h30 (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_epur_task
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:task_EPUR_task-schedule
+        description: TOUS LES JOURS à 20h30 (AAP)
+        starting_hour: '20:30:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host1930:task_GESTION_EGE_task
+    description: "TOUS LES JOURS à 12h00 et 17h00 (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_gestion_eqe_task
+      email_recipients: user@email.com
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:task_GESTION_EGE_task-schedule
+        description: "TOUS LES JOURS à 12h00 et 17h00 (AAP)"
+        starting_hour: '12:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+            byhour: '12, 17'
+
+  - name: host1930:task_GR
+    description: "LUNDI A VENDREDI à 00h00 (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_gr
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:task_GR-schedule
+        description: LUNDI A VENDREDI à 00h00 (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host1930:task_INIT_GESTION_ERREUR
+    description: "TOUS LES JOURS aux heures (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_init_gestion_erreur
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:task_INIT_GESTION_ERREUR-schedule
+        description: TOUS LES JOURS aux heures (AAP)
+        starting_hour: '08:00:00'
+        rrules_params:
+          - frequency: 'hour'
+            interval: 1
+
+  - name: host1930:task_INIT_GESTION_MESSAGE
+    description: "MERCREDI à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_init_gestion_message
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:task_INIT_GESTION_MESSAGE-schedule
+        description: MERCREDI à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'wednesday'
+
+  - name: host1930:task_INIT_MAJ_PIgroupeAGE_REC
+    description: "TOUS LES JOURS à 06h00 (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_init_maj_pigroupeage_rec
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:task_INIT_MAJ_PIgroupeAGE_REC-schedule
+        description: TOUS LES JOURS à 06h00 (AAP)
+        starting_hour: '06:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host1930:task_TRANSFERT_DGSP
+    description: "Le 10 du mois à 06h00 (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_transfert_dgsp
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:task_TRANSFERT_DGSP-schedule
+        description: Le 10 du mois à 06h00 (AAP)
+        starting_hour: '08:00:00'
+        rrules_params:
+          - frequency: 'month'
+            interval: 1
+            bymonthday: 10
+
+  - name: host1930:task_TRS_DOSSIERS_CRIMINELS
+    description: "TOUS LES JOURS aux 10 minutes (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_trs_dossiers_criminels.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:task_TRS_DOSSIERS_CRIMINELS-schedule
+        description: TOUS LES JOURS aux 10 minutes (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 10
+
+  - name: host1930:taskSJOUR
+    description: "TOUS LES JOURS à 02h00 (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask tasksjour
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:taskSJOUR-schedule
+        description: TOUS LES JOURS à 02h00 (AAP)
+        starting_hour: '02:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host1930:MENAGE_TMP_FRMWEB.OUT
+    description: "TOUS LES JOURS au 30 minutes - détruit fichiers plus vieux que 6h (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: "/usr/bin/find /tmp  -name 'frmweb*.out' -mmin +360 -exec /usr/bin/rm {} \\\\;"
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:MENAGE_TMP_FRMWEB.OUT-schedule
+        description: TOUS LES JOURS au 30 minutes - détruit fichiers plus vieux que 6h (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 30
+
+  - name: host1930:ORS_GENFORMS_FMW12C
+    description: "TOUS LES JOURS aux 5 minutes (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: /taskweb/fmw_transf/ors_genforms_fmw12c task_verification
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:ORS_GENFORMS_FMW12C-schedule
+        description: TOUS LES JOURS aux 5 minutes (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 5
+
+  - name: host2119:ACPT_task_CHARGE_TBL
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupeacpt acpt_task_charge_tbl
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:ACPT_task_CHARGE_TBL-schedule
+        description: LUNDI A VENDREDI à 06h45 (AAP)
+        starting_hour: '06:45:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:task_CLASSEMENT_BATCH_task
+    description: "LUNDI A VENDREDI AUX 2h de 08h00 à 18h01 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_classement_batch.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task_CLASSEMENT_BATCH_task-schedule
+        description: LUNDI A VENDREDI AUX 2h de 08h00 à 18h01 (AAP)
+        starting_hour: '08:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+            byhour: 8, 10, 12, 14, 16, 18
+
+  - name: host2119:task_task_UP_IDF_ID_task
+    description: "LUNDI A VENDREDI à 21h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/folders_task_up_idf_id_task
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task_task_UP_IDF_ID_task-schedule
+        description: LUNDI A VENDREDI à 21h00 (AAP)
+        starting_hour: '21:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host1930:task_LOCK
+    description: "TOUS LES JOURS aux 5 minutes jusqu'à 23h30 (AAP)"
+    job_vars:
+      target_hosts: host1930
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_lock
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1930:task_LOCK-schedule
+        description: TOUS LES JOURS aux 5 minutes jusqu'à 23h30 (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 5
+          - frequency: 'minute'
+            interval: 1
+            byminute: '30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59'
+            byhour: '23'
+            include: false
+
+  - name: host2119:task_MAJ_TRX_MINISTERE
+    description: "LUNDI A VENDREDI à 19h45 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask maj_trx_ministere ptaskp1
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task_MAJ_TRX_MINISTERE-schedule
+        description: LUNDI A VENDREDI à 19h45 (AAP)
+        starting_hour: '19:45:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:AUTORISATION_AUTO_DOSSIERS_task
+    description: "TOUS LES JOURS à 01h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask autorisation_auto_dossiers.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:AUTORISATION_AUTO_DOSSIERS_task-schedule
+        description: TOUS LES JOURS à 01h00 (AAP)
+        starting_hour: '01:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:BACKUP_task_DIFFERENTIAL
+    description: "TOUS LES VENDREDI à 16h30 (SAUF LE PREMIER VENDREDI DU MOIS) (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/task/lance_backup_task.sh DIFFERENTIAL 60
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:BACKUP_task_DIFFERENTIAL-schedule
+        description: TOUS LES VENDREDI à 16h30 (SAUF LE PREMIER VENDREDI DU MOIS) (AAP)
+        starting_hour: '16:30:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'friday'
+          - frequency: 'month'
+            interval: 1
+            byweekday: 'friday'
+            bysetpos: first
+            include: false
+
+  - name: host2119:BACKUP_task_FULL
+    description: "PREMIER VENDREDI DU MOIS à 16h30 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/task/lance_backup_task.sh FULL 60
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:BACKUP_task_FULL-schedule
+        description: PREMIER VENDREDI DU MOIS à 16h30 (AAP)
+        starting_hour: '16:30:00'
+        rrules_params:
+          - frequency: 'month'
+            interval: 1
+            byweekday: 'friday'
+            bysetpos: first
+
+  - name: host2119:BACKUP_task_INCREMENTAL
+    description: "LUNDI AU JEUDI, SAMEDI et DIMANCHE à 16h30 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/task/lance_backup_task.sh INCREMENTAL 60
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:BACKUP_task_INCREMENTAL-schedule
+        description: LUNDI AU JEUDI, SAMEDI et DIMANCHE à 16h30 (AAP)
+        starting_hour: '16:30:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, saturday, sunday'
+
+  - name: host2119:BAT1000R_task
+    description: "DIMANCHE A JEUDI à 20h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask bat1000r.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:BAT1000R_task-schedule
+        description: DIMANCHE A JEUDI à 20h00 (AAP)
+        starting_hour: '20:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'sunday, monday, tuesday, wednesday, thursday'
+
+  - name: host2119:CDN_task_MAJ_DE_task
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupecdn cdn_task_maj_de_task
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CDN_task_MAJ_DE_task-schedule
+        description: LUNDI A VENDREDI à 06h45 (AAP)
+        starting_hour: '06:45:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:CHARtaskENT_ADRESSE_PERMIS_VIGNETTE_task
+    description: "LUNDI à 07h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask chartaskent_adresse_permis_vignette.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHARtaskENT_ADRESSE_PERMIS_VIGNETTE_task-schedule
+        description: LUNDI à 07h00 (AAP)
+        starting_hour: '07:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday'
+
+  - name: host2119:CHARtaskENT_COMPTEURS_EAUX_task
+    description: "LUNDI à 06h30 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask chartaskent_compteurs_eaux.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHARtaskENT_COMPTEURS_EAUX_task-schedule
+        description: LUNDI à 06h30 (AAP)
+        starting_hour: '06:30:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday'
+
+  - name: host2119:CHARtaskENT_PERMIS_BATCH_task
+    description: "MARDI à 22h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask chartaskent_permis_batch.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHARtaskENT_PERMIS_BATCH_task-schedule
+        description: MARDI à 22h00 (AAP)
+        starting_hour: '22:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'tuesday'
+
+  - name: host2119:CHARtaskENT_POUR_BO_2019_task
+    description: "DIMANCHE A VENDREDI à 19h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask Chartaskent_pour_BO_2019.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHARtaskENT_POUR_BO_2019_task-schedule
+        description: DIMANCHE A VENDREDI à 19h00 (AAP)
+        starting_hour: '19:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'sunday, monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:CHARtaskENT_POUR_GPLUS_task
+    description: "LUNDI A SAMEDI à 04h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask Chartaskent_pour_gplus.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHARtaskENT_POUR_GPLUS_task-schedule
+        description: LUNDI A SAMEDI à 04h00 (AAP)
+        starting_hour: '04:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday, saturday'
+
+  - name: host2119:CHARtaskENT_PQ_ENDROIT_GEO_T_task
+    description: "LUNDI A VENDREDI à 22h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask chartaskent_pq_endroit_geo_t.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHARtaskENT_PQ_ENDROIT_GEO_T_task-schedule
+        description: LUNDI A VENDREDI à 22h00 (AAP)
+        starting_hour: '22:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:CHARtaskENT_PVQ_ADRESSE_task
+    description: "DIMANCHE A JEUDI à 22h30 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask chartaskent_pvq_adresse.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHARtaskENT_PVQ_ADRESSE_task-schedule
+        description: DIMANCHE A JEUDI à 22h30 (AAP)
+        starting_hour: '22:30:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'sunday, monday, tuesday, wednesday, thursday'
+
+  - name: host2119:CHARtaskENT_WEBI_INVENTAIRE_PERMIS_task
+    description: "LUNDI A JEUDI à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask chartaskent_webi_inventaire_permis.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHARtaskENT_WEBI_INVENTAIRE_PERMIS_task-schedule
+        description: LUNDI A JEUDI à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday'
+
+  - name: host2119:CHAU11_S_task_TRANS_bloc
+    description: "TOUS LES JOURS aux 10 minutes (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_transf_data_bloc
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHAU11_S_task_TRANS_bloc-schedule
+        description: TOUS LES JOURS aux 10 minutes (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 10
+
+  - name: host2119:CHAU11_S_task_TRANS_bloc
+    description: "TOUS LES JOURS aux 10 minutes (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupeeqm task_transf_data_bloc
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHAU11_S_task_TRANS_bloc-schedule
+        description: TOUS LES JOURS aux 10 minutes (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 10
+
+  - name: host2119:CHAU11_SVP_EXECUTER_SCRIPT_PROC
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupesvp svp_executer_script_proc
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHAU11_SVP_EXECUTER_SCRIPT_PROC-schedule
+        description: TOUS LES JOURS à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:CHAU11_TIMS_MAJ_INDEX_PLAN
+    description: "TOUS LES JOURS à 00h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupesgi tims_maj_index_plan
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHAU11_TIMS_MAJ_INDEX_PLAN-schedule
+        description: TOUS LES JOURS à 00h00 (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:CHAU11_TRS_CONSTAT_ELECTRO
+    description: "TOUS LES JOURS aux 2 heures entre 8h00 et 18h00 + 23h30 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupesitij trs_constat_electro.sh
+      email_recipients: user@email.com
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHAU11_TRS_CONSTAT_ELECTRO-schedule
+        description: TOUS LES JOURS aux 2 heures entre 8h00 et 18h00 (AAP)
+        starting_hour: '08:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+            byhour: 8, 10, 12, 14, 16, 18
+      - name: host2119:CHAU11_TRS_CONSTAT_ELECTRO-23h30-schedule
+        description: TOUS LES JOURS à 23h30 (AAP)
+        starting_hour: '23:30:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+            byhour: '23'
+
+  - name: host2119:CHAU11_TRS_groupe
+    description: "TOUS LES JOURS à 00h30 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupesitij trs_groupe.sh
+      email_recipients: user@email.com
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHAU11_TRS_groupe-schedule
+        description: TOUS LES JOURS à 00h30 (AAP)
+        starting_hour: '00:30:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:CHAU11_TRS_REGLEMENTS_OV
+    description: "TOUS LES JOURS à 00h02 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupesitij trs_reglements_ov.sh
+      email_recipients: user@email.com
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHAU11_TRS_REGLEMENTS_OV-schedule
+        description: TOUS LES JOURS à 00h02 (AAP)
+        starting_hour: '00:02:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:CHAU11_TRS_UNICITE_TOPO
+    description: "TOUS LES JOURS à 05h30 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupesitij trs_unicite_topo.sh
+      email_recipients: user@email.com
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CHAU11_TRS_UNICITE_TOPO-schedule
+        description: TOUS LES JOURS à 05h30 (AAP)
+        starting_hour: '05:30:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:CUPS_groupeNCHRO_PRINTERS
+    description: "TOUS LES JOURS à 05h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/cups_groupenchro_printers.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:CUPS_groupeNCHRO_PRINTERS-schedule
+        description: TOUS LES JOURS à 05h00 (AAP)
+        starting_hour: '05:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:task5160R_task
+    description: "1er du MOIS à 07h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task5160r.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task5160R_task-schedule
+        description: 1er du MOIS à 07h00 (AAP)
+        starting_hour: '07:00:00'
+        rrules_params:
+          - frequency: 'month'
+            interval: 1
+            bymonthday: 1
+
+  - name: host2119:DR_task_MAJ_DE_task
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupedr dr_task_maj_de_task
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:DR_task_MAJ_DE_task-schedule
+        description: LUNDI A VENDREDI à 06h45 (AAP)
+        starting_hour: '06:45:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:EXTRACTION_DEPOT_COMPARATATIF_2016_task
+    description: "TOUS LES JOURS à 18h30 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask extraction_depot_comparatif_2016.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:EXTRACTION_DEPOT_COMPARATATIF_2016_task-schedule
+        description: TOUS LES JOURS à 18h30 (AAP)
+        starting_hour: '18:30:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:EXTRACTION_ROLE_COURANT
+    description: "TOUS LES JOURS à 02h15 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask extraction_role_courant.sh
+      email_recipients: "User@email.com;user@email.com"
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:EXTRACTION_ROLE_COURANT-schedule
+        description: TOUS LES JOURS à 02h15 (AAP)
+        starting_hour: '02:15:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:EXTRACTION_ROLE_COURANT_SEFA
+    description: "TOUS LES JOURS à 00h01 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask extraction_role_courant_sefa.sh
+      email_recipients: User@email.com
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:EXTRACTION_ROLE_COURANT_SEFA-schedule
+        description: TOUS LES JOURS à 00h01 (AAP)
+        starting_hour: '00:01:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:EXTRACTION_TRANSFERT_SERVICEENLIGNE_task
+    description: "LUNDI à 08h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask extraction_transfer_ServiceEnLigne.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:EXTRACTION_TRANSFERT_SERVICEENLIGNE_task-schedule
+        description: LUNDI à 08h00 (AAP)
+        starting_hour: '08:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday'
+
+  - name: host2119:groupe_task_COMPLETE_INFO_groupe
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupegroupe groupe_task_complete_info_groupe
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:groupe_task_COMPLETE_INFO_groupe-schedule
+        description: LUNDI A VENDREDI à 06h45 (AAP)
+        starting_hour: '06:45:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:task_task_MAJ_DE_task
+    description: "LUNDI A VENDREDI à 06h15 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_task_maj_de_task
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task_task_MAJ_DE_task-schedule
+        description: LUNDI A VENDREDI à 06h15 (AAP)
+        starting_hour: '06:15:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:task_task_MAJ_DE_task
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_task_maj_de_task
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task_task_MAJ_DE_task-schedule
+        description: LUNDI A VENDREDI à 06h45 (AAP)
+        starting_hour: '06:45:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:GP_CHARtaskENT
+    description: "LUNDI à 23h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupegp gp_chartaskent
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:GP_CHARtaskENT-schedule
+        description: LUNDI à 23h00 (AAP)
+        starting_hour: '23:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday'
+
+  - name: host2119:task_task_MAJ_task
+    description: "LUNDI A VENDREDI à 05h30 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_task_maj_task
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task_task_MAJ_task-schedule
+        description: LUNDI A VENDREDI à 05h30 (AAP)
+        starting_hour: '05:30:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:task_AVIS_ERREUR_BATCH
+    description: "TOUS LES JOURS aux 10 minutes (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupeeqm task_avis_erreur_batch
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task_AVIS_ERREUR_BATCH-schedule
+        description: TOUS LES JOURS aux 10 minutes (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 10
+
+  - name: host2119:taskACTIFOT
+    description: "LUNDI A VENDREDI à 12h30 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupeeqm taskactifot
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:taskACTIFOT-schedule
+        description: LUNDI A VENDREDI à 12h30 (AAP)
+        starting_hour: '12:30:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:IMPRESSION_CERTIFICATS_task
+    description: "LUNDI A VENDREDI à 05h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask impression_certificats.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:IMPRESSION_CERTIFICATS_task-schedule
+        description: LUNDI A VENDREDI à 05h00 (AAP)
+        starting_hour: '05:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:MAJ_DATE_groupeSTEME(task_task)_task
+    description: "LUNDI A SAMEDI à 00h10 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/task_task/script/maj_date_groupesteme.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:MAJ_DATE_groupeSTEME(task_task)_task-schedule
+        description: LUNDI A SAMEDI à 00h10 (AAP)
+        starting_hour: '00:10:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday, friday, saturday'
+
+  - name: host2119:MAJ_DATE_groupeSTEME_task
+    description: "TOUS LES JOURS à 00h15 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask maj_date_groupesteme.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:MAJ_DATE_groupeSTEME_task-schedule
+        description: TOUS LES JOURS à 00h15 (AAP)
+        starting_hour: '00:15:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:task_XML_PROD_task
+    description: "LUNDI A VENDREDI à 11H30 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/task/script/task_XML_PROD.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task_XML_PROD_task-schedule
+        description: LUNDI A VENDREDI à 11H30 (AAP)
+        starting_hour: '11:30:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:task_MAJ_FIN
+    description: "LUNDI A VENDREDI à 7h20 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_maj_fin
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task_MAJ_FIN-schedule
+        description: LUNDI A VENDREDI à 7h20 (AAP)
+        starting_hour: '07:20:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:MRQ_task_MAJ_DE_task
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupemrq mrq_task_maj_de_task
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:MRQ_task_MAJ_DE_task-schedule
+        description: LUNDI A VENDREDI à 06h45 (AAP)
+        starting_hour: '06:45:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:OTSEQM
+    description: "TOUS LES JOURS à 3h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupeot otseqm
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:OTSEQM-schedule
+        description: TOUS LES JOURS à 3h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:task_INS_EXTRACTION_PERMIS
+    description: "LUNDI à 22h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupepvq task_ins_extraction_permis
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task_INS_EXTRACTION_PERMIS-schedule
+        description: LUNDI à 22h00 (AAP)
+        starting_hour: '22:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday'
+
+  - name: host2119:task_TRANSFERT_CUQ
+    description: "MARDI à 4h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupepvq task_transfert_cuq
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task_TRANSFERT_CUQ-schedule
+        description: MARDI à 4h00 (AAP)
+        starting_hour: '04:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'tuesday'
+
+  - name: host2119:PROC_COND_EGOUT_DELTAH_GEOPROD
+    description: "TOUS LES JOURS à 22h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupesgi proc_cond_egout_deltah
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:PROC_COND_EGOUT_DELTAH_GEOPROD-schedule
+        description: TOUS LES JOURS à 22h00 (AAP)
+        starting_hour: '22:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:task_task_MAJ_ARD_CP
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_task_maj_ard_cp
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task_task_MAJ_ARD_CP-schedule
+        description: LUNDI A VENDREDI à 06h45 (AAP)
+        starting_hour: '06:45:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:RAPPORTS_BATCH_task (task)
+    description: "LUNDI A VENDREDI à 06h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask rapports_batch_task.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:RAPPORTS_BATCH_task (task)-schedule
+        description: LUNDI A VENDREDI à 06h00 (AAP)
+        starting_hour: '06:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:RAPPORTS_BATCH_task_task
+    description: "DIMANCHE A JEUDI à 06h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/task_task/script/rapports_batch_task.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:RAPPORTS_BATCH_task_task-schedule
+        description: DIMANCHE A JEUDI à 06h00 (AAP)
+        starting_hour: '06:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'sunday, monday, tuesday, wednesday, thursday'
+
+  - name: host2119:RMS_PQ_CARTO
+    description: "LUNDI A VENDREDI à 0h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/rms/script/rms_pq_carto.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:RMS_PQ_CARTO-schedule
+        description: LUNDI A VENDREDI à 0h00 (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:S_DA_GET_ET_LOAD_CODES_POSTEAUX
+    description: "15 du mois à 00h01 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: "/home/da/script/da_pc_ftp.sh;/home/da/script/da_pc_sqlloader.sh"
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:S_DA_GET_ET_LOAD_CODES_POSTEAUX-schedule
+        description: 15 du mois à 00h01 (AAP)
+        starting_hour: '00:01:00'
+        rrules_params:
+          - frequency: 'month'
+            interval: 1
+            bymonthday: 15
+
+  - name: host2119:S_taskStask_task
+    description: "TOUS LES JOURS aux 2 heures entre 8h00 et 18h01 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: "/home/folders/script/groupetask task_reception_batch.sh;/home/folders/script/groupetask task_chartaskent_batch.sh"
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:S_taskStask_task-schedule
+        description: TOUS LES JOURS aux 2 heures entre 8h00 et 18h01 (AAP)
+        starting_hour: '08:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+            byhour: '8, 10, 12, 14, 16, 18'
+
+  - name: host2119:S_OTSCOUT
+    description: "LUNDI à 04h15 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: "/home/folders/script/groupeot otscout;/home/folders/script/groupeeqm eqmsjum"
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:S_OTSCOUT-schedule
+        description: LUNDI à 04h15 (AAP)
+        starting_hour: '04:15:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday'
+
+  - name: host2119:S_PQ_INS_END_GEO_T_SESSION
+    description: "DIMANCHE A JEUDI à 18h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupepvq task_ins_end_geo_t
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:S_PQ_INS_END_GEO_T_SESSION-schedule
+        description: DIMANCHE A JEUDI à 18h00 (AAP)
+        starting_hour: '18:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'sunday, monday, tuesday, wednesday, thursday'
+
+  - name: host2119:task_task_MAJ_DE_task
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_task_maj_de_task
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:task_task_MAJ_DE_task-schedule
+        description: LUNDI A VENDREDI à 06h45 (AAP)
+        starting_hour: '06:45:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:STATS
+    description: "TOUS LES JOURS à 6h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/STATS/stats.sh
+      email_recipients: User@email.com
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:STATS-schedule
+        description: TOUS LES JOURS à 6h00 (AAP)
+        starting_hour: '06:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:TFP_MENAGE_IMP_ET_ARCHIVES
+    description: "TOUS LES JOURS à 00h01 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetfp TFP_MENAGE_IMP_ET_ARCHIVES.sh
+      email_recipients: User@email.com
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:TFP_MENAGE_IMP_ET_ARCHIVES-schedule
+        description: TOUS LES JOURS à 00h01 (AAP)
+        starting_hour: '00:01:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:TRANSFERT_TFP_task
+    description: "LUNDI A VENDREDI à 06h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask transfert_tfp.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:TRANSFERT_TFP_task-schedule
+        description: LUNDI A VENDREDI à 06h00 (AAP)
+        starting_hour: '06:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2119:VENTES_TERRAINS_task
+    description: "TOUS LES JOURS à 21h00 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask ventes_terrains.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:VENTES_TERRAINS_task-schedule
+        description: TOUS LES JOURS à 21h00 (AAP)
+        starting_hour: '21:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:taskQDIX
+    description: "TOUS LES JOURS aux 10 minutes à partir de 00h03 - user (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetasknv taskqdix
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:taskQDIX-schedule
+        description: TOUS LES JOURS aux 10 minutes à partir de 00h03 - user (AAP)
+        starting_hour: '00:03:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 10
+
+  - name: host2119:taskQETUDI
+    description: "TOUS LES JOURS à 22h00 - user (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetasknv taskqetudi
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:taskQETUDI-schedule
+        description: TOUS LES JOURS à 22h00 - user (AAP)
+        starting_hour: '22:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:taskQETUDIR
+    description: "TOUS LES JOURS à 01h30 (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetasknv taskqetudir
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:taskQETUDIR-schedule
+        description: TOUS LES JOURS à 01h30 (AAP)
+        starting_hour: '01:30:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:taskQGTTP
+    description: "TOUS LES JOURS aux heures - user (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetasknv taskqgttp
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:taskQGTTP-schedule
+        description: TOUS LES JOURS aux heures - user (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'hour'
+            interval: 1
+
+  - name: host2119:taskQHEBDO
+    description: "SAMEDI à 19h00 (AAP) user"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetasknv taskqhebdo
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:taskQHEBDO-schedule
+        description: SAMEDI à 19h00 (AAP) user
+        starting_hour: '19:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'saturday'
+
+  - name: host2119:taskQMATIN
+    description: "TOUS LES JOURS à 22h00 (AAP) user"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetasknv taskqmatin
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:taskQMATIN-schedule
+        description: TOUS LES JOURS à 22h00 (AAP) user
+        starting_hour: '22:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:taskQMIDI
+    description: "TOUS LES JOURS 12h00 - user (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetasknv taskqmidi
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:taskQMIDI-schedule
+        description: TOUS LES JOURS 12h00 - user (AAP)
+        starting_hour: '12:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2119:taskQQUART
+    description: "LUNDI A VENDREDI aux 15 minutes entre 07h05 et 17h16 - user (AAP)"
+    job_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetasknv taskqquart
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2119:taskQQUART-schedule
+        description: LUNDI A VENDREDI aux 15 minutes entre 07h05 et 17h16 - user (AAP)
+        starting_hour: '08:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+            byminute: '5, 20, 35, 50'
+            byhour: '7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17'
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+            byminute: '20, 35, 50'
+            byhour: '17'
+            include: false
+
+  - name: host2240:CHECK_STATUS
+    description: "TOUS LES JOURS aux 3 minutes jusqu'à 23h50 (AAP)"
+    job_vars:
+      target_hosts: host2240
+      user_to_execute_task: user
+      script_path: /home/mqm/Config/check_status
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2240:CHECK_STATUS-schedule
+        description: TOUS LES JOURS aux 3 minutes jusqu'à 23h50 (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 3
+          - frequency: 'minute'
+            interval: 1
+            byminute: '50, 51, 52, 53, 54, 55, 56, 57, 58, 59'
+            byhour: '23'
+            include: false
+
+  - name: host2240:task_MQ_CRPQ
+    description: "TOUS LES JOURS aux 30 minutes (AAP)"
+    job_vars:
+      target_hosts: host2240
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetask task_mq_crpq
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2240:task_MQ_CRPQ-schedule
+        description: TOUS LES JOURS aux 30 minutes (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 30
+
+  - name: host1169:groupeSERASE
+    description: "LUNDI A VENDREDI à 05h00 (AAP)"
+    job_vars:
+      target_hosts: host1169
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupegroupe groupeserase
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1169:groupeSERASE-schedule
+        description: LUNDI A VENDREDI à 05h00 (AAP)
+        starting_hour: '05:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host1169:groupeStask_ABONNEMENT
+    description: "1er DU MOIS à 06h00 (AAP)"
+    job_vars:
+      target_hosts: host1169
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupegroupe groupestask_abonnement
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1169:groupeStask_ABONNEMENT-schedule
+        description: 1er DU MOIS à 06h00 (AAP)
+        starting_hour: '06:00:00'
+        rrules_params:
+          - frequency: 'month'
+            interval: 1
+            bymonthday: 1
+
+  - name: host2028:EXPORT_task
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host2028
+      user_to_execute_task: user
+      script_path: /home/user/script/task_expdp.sh task_p1 /home/user/script/parfiles/expdp_task_p1.par /exportjour/task
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2028:EXPORT_task-schedule
+        description: TOUS LES JOURS à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2028:EXPORT_taskP
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host2028
+      user_to_execute_task: user
+      script_path: /home/user/script/task_expdp.sh taskp_p1 /home/user/script/parfiles/expdp_taskp_p1.par /exportjour/taskp
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2028:EXPORT_taskP-schedule
+        description: TOUS LES JOURS à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2029:EXPORT_GEOPRQ1
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host2029
+      user_to_execute_task: user
+      script_path: /home/user/script/task_expdp.sh geoprq1_p2 /home/user/script/parfiles/expdp_geoprq1_p2.par /exportjour/geoprq1
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2029:EXPORT_GEOPRQ1-schedule
+        description: TOUS LES JOURS à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2040:EXPORT_GEOPROD
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host2040
+      user_to_execute_task: user
+      script_path: /home/user/script/task_expdp.sh geoprod_p1 /home/user/script/parfiles/expdp_geoprod_p1.par /exportjour/geoprod
+      email_recipients: user@email.com
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2040:EXPORT_GEOPROD-schedule
+        description: TOUS LES JOURS à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2042:EXPORT_CHAU11
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host2042
+      user_to_execute_task: user
+      script_path: /home/user/script/task_expdp.sh chau11_p3 /home/user/script/parfiles/expdp_chau11_p3.par /exportjour/chau11
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2042:EXPORT_CHAU11-schedule
+        description: TOUS LES JOURS à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2044:EXPORT_MAXPROD
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host2044
+      user_to_execute_task: user
+      script_path: /home/user/script/task_expdp.sh maxprod_p3 /home/user/script/parfiles/expdp_maxprod_p3.par /exportjour/maxprod
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2044:EXPORT_MAXPROD-schedule
+        description: TOUS LES JOURS à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2207:task_TRANSFERTS_ECHANGE_LEV
+    description: "TOUS LES JOURS aux 20 minutes (AAP)"
+    job_vars:
+      target_hosts: host2207
+      user_to_execute_task: user
+      script_path: /home/task_lev_prd/script/task_transferts_echange_lev
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2207:task_TRANSFERTS_ECHANGE_LEV-schedule
+        description: TOUS LES JOURS aux 20 minutes (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 20
+
+  - name: host2236:EXPORT_CDB
+    description: "TOUS LES JOURS à 04h00 (AAP)"
+    job_vars:
+      target_hosts: host2236
+      user_to_execute_task: user
+      script_path: /home/user/script/backupPDB.py
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2236:EXPORT_CDB-schedule
+        description: TOUS LES JOURS à 04h00 (AAP)
+        starting_hour: '04:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2236:EXPORT_EP11
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host2236
+      user_to_execute_task: user
+      script_path: /home/user/script/task_expdp.sh ep11_s /home/user/script/parfiles/expdp_ep11_s.par /exportjour/ep11
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2236:EXPORT_EP11-schedule
+        description: TOUS LES JOURS à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2304:EXPORT_BD_taskQP
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host2304
+      user_to_execute_task: user
+      script_path: /home/user/script/task_expdp.sh taskqp /home/user/script/parfiles/expdp_taskqp.par /exportbd/taskqp
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2304:EXPORT_BD_taskQP-schedule
+        description: TOUS LES JOURS à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2304:EXPORT_BD_taskQPREC
+    description: "TOUS LES JOURS à 21h00 (AAP)"
+    job_vars:
+      target_hosts: host2304
+      user_to_execute_task: user
+      script_path: /home/user/script/task_expdp.sh taskqprec /home/user/script/parfiles/expdp_taskqprec.par /exportbd/taskqprec
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2304:EXPORT_BD_taskQPREC-schedule
+        description: TOUS LES JOURS à 21h00 (AAP)
+        starting_hour: '21:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2304:ORS_EPURE_user
+    description: "LUNDI ET VENDREDI à 00h00 (AAP)"
+    job_vars:
+      target_hosts: host2304
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupeuser ors_epure_user
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2304:ORS_EPURE_user-schedule
+        description: LUNDI ET VENDREDI à 00h00 (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2304:S_task_STAT
+    description: "SAMEDI à 05h30 (AAP)"
+    job_vars:
+      target_hosts: host2304
+      user_to_execute_task: user
+      script_path: "/home/folders/script/groupeuser ors_gen_stats;/home/folders/script/groupeuser ors_exec_stats"
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2304:S_task_STAT-schedule
+        description: SAMEDI à 05h30 (AAP)
+        starting_hour: '05:30:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'saturday'
+
+  - name: host2304:S_groupeESLOGJ
+    description: "LUNDI A VENDREDI à 06h30 (AAP)"
+    job_vars:
+      target_hosts: host2304
+      user_to_execute_task: user
+      script_path: "/home/folders/script/groupegroupe groupesgroupe;/home/folders/script/groupegroupe groupeslog1"
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2304:S_groupeESLOGJ-schedule
+        description: LUNDI A VENDREDI à 06h30 (AAP)
+        starting_hour: '06:30:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2304:task_RELEVES_EMPLOI
+    description: "TOUS LES JOURS aux 10 minutes entre 07h00 et 17h01 (AAP)"
+    job_vars:
+      target_hosts: host2304
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetasknv task_releves_emploi
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2304:task_RELEVES_EMPLOI-schedule
+        description: TOUS LES JOURS aux 10 minutes entre 07h00 et 17h01 (AAP)
+        starting_hour: '07:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+            byminute: '0, 10, 20, 30, 40, 50'
+            byhour: '7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17'
+          - frequency: 'day'
+            interval: 1
+            byminute: '10, 20, 30, 40, 50'
+            byhour: '17'
+            include: false
+
+  - name: host2304:taskQtaskHCR
+    description: "TOUS LES JOURS à 02h30 - user (AAP)"
+    job_vars:
+      target_hosts: host2304
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetasknv taskqtaskhcr
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2304:taskQtaskHCR-schedule
+        description: TOUS LES JOURS à 02h30 - user (AAP)
+        starting_hour: '02:30:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2482-EXPORT_BD_taskPRS1
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host2482
+      user_to_execute_task: user
+      script_path: /home/user/script/task_expdp.sh taskprs1 /home/user/script/parfiles/expdp_taskprs1.par /exportbd/taskprs1
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2482-EXPORT_BD_taskPRS1-schedule
+        description: TOUS LES JOURS à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2482-EXPORT_BD_taskSP2
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host2482
+      user_to_execute_task: user
+      script_path: /home/user/script/task_expdp.sh tasksp2 /home/user/script/parfiles/expdp_tasksp2.par /exportbd/tasksp2
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2482-EXPORT_BD_taskSP2-schedule
+        description: TOUS LES JOURS à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2482:task_FTP_EMPLOYES_SHER
+    description: "LUNDI A VENDREDI à 16h30 (AAP)"
+    job_vars:
+      target_hosts: host2482
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupetasksh task_ftp_employes_sher
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2482:task_FTP_EMPLOYES_SHER-schedule
+        description: LUNDI A VENDREDI à 16h30 (AAP)
+        starting_hour: '16:30:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2482:task_TRANSFERT_FTP3_SHER
+    description: "TOUS LES JOURS aux 15 minutes (AAP)"
+    job_vars:
+      target_hosts: host2482
+      user_to_execute_task: user
+      script_path: /home/task_she_prd/script/task_transferts_ftp3_sher
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2482:task_TRANSFERT_FTP3_SHER-schedule
+        description: TOUS LES JOURS aux 15 minutes (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 15
+
+  - name: host1582:STOP_START_FMW_DIMANCHE
+    description: "TOUS LES DIMANCHE à 09h00 (AAP)"
+    job_vars:
+      target_hosts: host1582
+      user_to_execute_task: user
+      script_path: /home/user/script/stop_start_fmw_dimanche.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host1582:STOP_START_FMW_DIMANCHE-schedule
+        description: TOUS LES DIMANCHE à 09h00 (AAP)
+        starting_hour: '09:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'sunday'
+
+  - name: host2026:MAJ_ROLE_GEOMATIQUE
+    description: "TOUS LES JOURS à 18h20 (AAP)"
+    job_vars:
+      target_hosts: host2026
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupesde maj_roles_geomatique
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2026:MAJ_ROLE_GEOMATIQUE-schedule
+        description: TOUS LES JOURS à 18h20 (AAP)
+        starting_hour: '18:20:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2050:MAJ_DATE_groupeSTEME(task)
+    description: "LUNDI A VENDREDI à 06h00 (AAP)"
+    job_vars:
+      target_hosts: host2050
+      user_to_execute_task: user
+      script_path: /home/task/script/maj_date_groupesteme.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2050:MAJ_DATE_groupeSTEME(task)-schedule
+        description: LUNDI A VENDREDI à 06h00 (AAP)
+        starting_hour: '06:00:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'monday, tuesday, wednesday, thursday, friday'
+
+  - name: host2052:EXPORT_CDB
+    description: "TOUS LES JOURS à 04h00 (AAP)"
+    job_vars:
+      target_hosts: host2052
+      user_to_execute_task: user
+      script_path: /home/user/script/backupPDB.py
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2052:EXPORT_CDB-schedule
+        description: TOUS LES JOURS à 04h00 (AAP)
+        starting_hour: '04:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2052:PVQ_SESAME
+    description: "TOUS LES JOURS aux 5 minutes (AAP)"
+    job_vars:
+      target_hosts: host2052
+      user_to_execute_task: user
+      script_path: /home/folders/script/groupepvq pvq_sesame
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2052:PVQ_SESAME-schedule
+        description: TOUS LES JOURS aux 5 minutes (AAP)
+        starting_hour: '00:00:00'
+        rrules_params:
+          - frequency: 'minute'
+            interval: 5
+
+  - name: host2167:ORS_EBS_REFRESH_ALL
+    description: "MERCREDI à 0h30 (AAP)"
+    job_vars:
+      target_hosts: host2167
+      user_to_execute_task: user
+      script_path: /home/user/script/ebs_refresh/ors_ebs_refresh_all
+      email_recipients: User@email.com
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2167:ORS_EBS_REFRESH_ALL-schedule
+        description: MERCREDI à 0h30 (AAP)
+        starting_hour: '00:30:00'
+        rrules_params:
+          - frequency: 'week'
+            interval: 1
+            byweekday: 'wednesday'
+
+  - name: host2307:STOP_START_ALL_SPOOLER_task
+    description: "TOUS LES JOURS à 06h00 (AAP)"
+    job_vars:
+      target_hosts: host2307
+      user_to_execute_task: user
+      script_path: "/home/user/script/stop_spooler_task_QUE_DEV_CV;/home/user/script/start_spooler_task_QUE_DEV_CV"
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2307:STOP_START_ALL_SPOOLER_task-schedule
+        description: TOUS LES JOURS à 06h00 (AAP)
+        starting_hour: '06:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host2464:STOP_START_ALL_SPOOLER_task
+    description: "TOUS LES JOURS à 06h00 (AAP)"
+    job_vars:
+      target_hosts: host2464
+      user_to_execute_task: user
+      script_path: "/home/user/script/stop_spooler_task_SHE_TST_CV;/home/user/script/start_spooler_task_SHE_TST_CV"
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host2464:STOP_START_ALL_SPOOLER_task-schedule
+        description: TOUS LES JOURS à 06h00 (AAP)
+        starting_hour: '06:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host0855:VALIDATIONBDDEV
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host0855
+      user_to_execute_task: user
+      script_path: /home/user/script/validation/validationBdDev.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host0855:VALIDATIONBDDEV-schedule
+        description: TOUS LES JOURS à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+
+  - name: host0855:VALIDATIONBDPROD
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    job_vars:
+      target_hosts: host0855
+      user_to_execute_task: user
+      script_path: /home/user/script/validation/validationBdProd.sh
+      email_recipients:
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    schedules:
+      - name: host0855:VALIDATIONBDPROD-schedule
+        description: TOUS LES JOURS à 03h00 (AAP)
+        starting_hour: '03:00:00'
+        rrules_params:
+          - frequency: 'day'
+            interval: 1

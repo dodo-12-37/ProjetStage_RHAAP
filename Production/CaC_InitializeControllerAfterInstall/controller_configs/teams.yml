@@ -1,0 +1,25 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_teams:
+#   - name: "Test"
+#     # new_name: Test2
+#     description: "Pour tester"
+#     organization: "Ville de Quebec"
+#     state: present
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+controller_teams:  # À décommenter au besoin...
+  - name: "vdq-TI-ITSO-SBD"
+    description: "Équipe TI de la Ville De Québec du département ITSO, section SBD."
+    organization: "{{ name_prefix }}Ville de Quebec"
+    state: present
+    
+  # - name: "Ldap users"
+  #   description: "LDAP AD"
+  #   organization: "Ville de Quebec"
+  #   state: present
+  
+...

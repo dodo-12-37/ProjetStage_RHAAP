@@ -1,0 +1,44 @@
+---
+# Commande d'exécution :
+#
+# ansible-playbook test_create_rrules.yml
+#
+- name: Test pour tenter de créer des 'rrules' pour les 'schedules'.
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Create a ruleset for everyday except Sundays
+      ansible.builtin.set_fact:
+        complex_rule: "{{ query('awx.awx.schedule_rruleset', '2024-01-30 12:37:45', rules=rrules, timezone='America/Toronto') }}"
+      ignore_errors: true
+      vars:
+        rrules:
+          - frequency: 'day'
+            interval: 1
+          - frequency: 'day'
+            interval: 1
+            byweekday: 'sunday'
+            include: False
+
+    - name: Debug complex_rule
+      ansible.builtin.debug:
+        var: complex_rule
+
+    - name: Create a ruleset for everyday except Sundays V2
+      set_fact:
+        complex_rule: "{{ query('awx.awx.schedule_rruleset', '2024-01-30 12:37:45', rules=rrules, timezone='America/Toronto') }}"
+      vars:
+        rrules:
+          - frequency: 'day'
+            interval: 1
+          - frequency: 'day'
+            interval: 1
+            byweekday: 'sunday'
+            include: False
+
+    - name: Debug complex_rule V2
+      ansible.builtin.debug:
+        var: complex_rule
+...

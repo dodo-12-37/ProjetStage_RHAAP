@@ -1,0 +1,20 @@
+---
+- name: Format Current Date in ISO 8601
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Get Current Date basic and in ISO 8601
+      ansible.builtin.set_fact:
+        current_date: "{{ now() }}" 
+        current_date_iso8601: "{{ now(false, '%Y-%m-%dT%H:%M:%SZ') }}"  # dtstart: "2023-12-22T17:00:00Z"
+
+    - name: Display Current Date basic
+      ansible.builtin.debug:
+        var: current_date
+
+    - name: Display Current Date in ISO 8601
+      ansible.builtin.debug:
+        var: current_date_iso8601
+
+...

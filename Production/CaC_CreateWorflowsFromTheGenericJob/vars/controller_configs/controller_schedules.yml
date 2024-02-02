@@ -1,0 +1,3594 @@
+---
+controller_schedules:   # Nom de la variable parent.
+  - name: "|Dev|-satelliteHost:CREE_SHARE_LIST-schedule"
+    description: "TOUS LES VENDREDI à 12h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-satelliteHost:CREE_SHARE_LIST"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T120000 RRULE:FREQ=WEEKLY;BYDAY=FR;INTERVAL=1"
+    extra_data:
+      email_recipients: "User@email.com"
+      script_path: "/home/ansible/shares/cree_csv.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "satelliteHost.local"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-satelliteHost-taskEngineUpgrade_DEV-schedule"
+    description: "Le 1er du mois à 8h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-satelliteHost-taskEngineUpgrade_DEV"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T080000 RRULE:FREQ=MONTHLY;BYMONTHDAY=1;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/usr/bin/ansible-playbook  -lgroupe6,groupe9 /home/ansible/bloc/bloc_upgrade.yml"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "satelliteHost.local"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-satelliteHost-taskEngineUpgrade_PROD-schedule"
+    description: "Le 15 du mois à 8h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-satelliteHost-taskEngineUpgrade_PROD"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T080000 RRULE:FREQ=MONTHLY;BYMONTHDAY=15;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/usr/bin/ansible-playbook  -lgroupe6,groupe9 /home/ansible/bloc/bloc_upgrade.yml"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "satelliteHost.local"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:CHMOD_task_REPORTS-schedule"
+    description: "TOUS LES JOURS aux 5 minutes (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:CHMOD_task_REPORTS"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=5"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/task/script/chmod_task_reports"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:task_AS-schedule"
+    description: "TOUS LES JOURS aux 10 minutes (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:task_AS"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=10"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_as"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:task_EPUR_task-schedule"
+    description: "TOUS LES JOURS à 20h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:task_EPUR_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T203000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_epur_task"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:task_GESTION_EGE_task-schedule"
+    description: "TOUS LES JOURS à 12h00 et 17h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:task_GESTION_EGE_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T120000 RRULE:FREQ=DAILY;BYHOUR=12,17;INTERVAL=1"
+    extra_data:
+      email_recipients: "user@email.com"
+      script_path: "/home/folders/script/groupetask task_gestion_eqe_task"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:task_GR-schedule"
+    description: "LUNDI A VENDREDI à 00h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:task_GR"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_gr"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:task_INIT_GESTION_ERREUR-schedule"
+    description: "TOUS LES JOURS aux heures (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:task_INIT_GESTION_ERREUR"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T080000 RRULE:FREQ=HOURLY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_init_gestion_erreur"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:task_INIT_GESTION_MESSAGE-schedule"
+    description: "MERCREDI à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:task_INIT_GESTION_MESSAGE"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=WEEKLY;BYDAY=WE;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_init_gestion_message"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:task_INIT_MAJ_PIgroupeAGE_REC-schedule"
+    description: "TOUS LES JOURS à 06h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:task_INIT_MAJ_PIgroupeAGE_REC"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T060000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_init_maj_pigroupeage_rec"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:task_TRANSFERT_DGSP-schedule"
+    description: "Le 10 du mois à 06h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:task_TRANSFERT_DGSP"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T080000 RRULE:FREQ=MONTHLY;BYMONTHDAY=10;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_transfert_dgsp"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:task_TRS_DOSSIERS_CRIMINELS-schedule"
+    description: "TOUS LES JOURS aux 10 minutes (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:task_TRS_DOSSIERS_CRIMINELS"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=10"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_trs_dossiers_criminels.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:taskSJOUR-schedule"
+    description: "TOUS LES JOURS à 02h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:taskSJOUR"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T020000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask tasksjour"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:MENAGE_TMP_FRMWEB.OUT-schedule"
+    description: "TOUS LES JOURS au 30 minutes - détruit fichiers plus vieux que 6h (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:MENAGE_TMP_FRMWEB.OUT"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=30"
+    extra_data:
+      email_recipients: ""
+      script_path: "/usr/bin/find /tmp  -name 'frmweb*.out' -mmin +360 -exec /usr/bin/rm {} \\;"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:ORS_GENFORMS_FMW12C-schedule"
+    description: "TOUS LES JOURS aux 5 minutes (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:ORS_GENFORMS_FMW12C"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=5"
+    extra_data:
+      email_recipients: ""
+      script_path: "/taskweb/fmw_transf/ors_genforms_fmw12c task_verification"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:ACPT_task_CHARGE_TBL-schedule"
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:ACPT_task_CHARGE_TBL"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T064500 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupeacpt acpt_task_charge_tbl"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task_CLASSEMENT_BATCH_task-schedule"
+    description: "LUNDI A VENDREDI AUX 2h de 08h00 à 18h01 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task_CLASSEMENT_BATCH_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T080000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=8,10,12,14,16,18;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_classement_batch.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task_task_UP_IDF_ID_task-schedule"
+    description: "LUNDI A VENDREDI à 21h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task_task_UP_IDF_ID_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T210000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/folders_task_up_idf_id_task"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1930:task_LOCK-schedule"
+    description: "TOUS LES JOURS aux 5 minutes jusqu'à 23h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1930:task_LOCK"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=5 EXRULE:FREQ=MINUTELY;BYHOUR=23;BYMINUTE=30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_lock"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1930"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task_MAJ_TRX_MINISTERE-schedule"
+    description: "LUNDI A VENDREDI à 19h45 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task_MAJ_TRX_MINISTERE"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T194500 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask maj_trx_ministere ptaskp1"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:AUTORISATION_AUTO_DOSSIERS_task-schedule"
+    description: "TOUS LES JOURS à 01h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:AUTORISATION_AUTO_DOSSIERS_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T010000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask autorisation_auto_dossiers.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:BACKUP_task_DIFFERENTIAL-schedule"
+    description: "TOUS LES VENDREDI à 16h30 (SAUF LE PREMIER VENDREDI DU MOIS) (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:BACKUP_task_DIFFERENTIAL"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T163000 RRULE:FREQ=WEEKLY;BYDAY=FR;INTERVAL=1 EXRULE:FREQ=MONTHLY;BYSETPOS=1;BYDAY=FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/task/lance_backup_task.sh DIFFERENTIAL 60"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:BACKUP_task_FULL-schedule"
+    description: "PREMIER VENDREDI DU MOIS à 16h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:BACKUP_task_FULL"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T163000 RRULE:FREQ=MONTHLY;BYSETPOS=1;BYDAY=FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/task/lance_backup_task.sh FULL 60"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:BACKUP_task_INCREMENTAL-schedule"
+    description: "LUNDI AU JEUDI, SAMEDI et DIMANCHE à 16h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:BACKUP_task_INCREMENTAL"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T163000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,SA,SU;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/task/lance_backup_task.sh INCREMENTAL 60"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:BAT1000R_task-schedule"
+    description: "DIMANCHE A JEUDI à 20h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:BAT1000R_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T200000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,SU;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask bat1000r.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CDN_task_MAJ_DE_task-schedule"
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CDN_task_MAJ_DE_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T064500 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupecdn cdn_task_maj_de_task"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHARtaskENT_ADRESSE_PERMIS_VIGNETTE_task-schedule"
+    description: "LUNDI à 07h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHARtaskENT_ADRESSE_PERMIS_VIGNETTE_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T070000 RRULE:FREQ=WEEKLY;BYDAY=MO;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask chartaskent_adresse_permis_vignette.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHARtaskENT_COMPTEURS_EAUX_task-schedule"
+    description: "LUNDI à 06h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHARtaskENT_COMPTEURS_EAUX_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T063000 RRULE:FREQ=WEEKLY;BYDAY=MO;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask chartaskent_compteurs_eaux.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHARtaskENT_PERMIS_BATCH_task-schedule"
+    description: "MARDI à 22h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHARtaskENT_PERMIS_BATCH_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T220000 RRULE:FREQ=WEEKLY;BYDAY=TU;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask chartaskent_permis_batch.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHARtaskENT_POUR_BO_2019_task-schedule"
+    description: "DIMANCHE A VENDREDI à 19h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHARtaskENT_POUR_BO_2019_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T190000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SU;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask Chartaskent_pour_BO_2019.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHARtaskENT_POUR_GPLUS_task-schedule"
+    description: "LUNDI A SAMEDI à 04h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHARtaskENT_POUR_GPLUS_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T040000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask Chartaskent_pour_gplus.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHARtaskENT_PQ_ENDROIT_GEO_T_task-schedule"
+    description: "LUNDI A VENDREDI à 22h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHARtaskENT_PQ_ENDROIT_GEO_T_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T220000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask chartaskent_pq_endroit_geo_t.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHARtaskENT_PVQ_ADRESSE_task-schedule"
+    description: "DIMANCHE A JEUDI à 22h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHARtaskENT_PVQ_ADRESSE_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T223000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,SU;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask chartaskent_pvq_adresse.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHARtaskENT_WEBI_INVENTAIRE_PERMIS_task-schedule"
+    description: "LUNDI A JEUDI à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHARtaskENT_WEBI_INVENTAIRE_PERMIS_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask chartaskent_webi_inventaire_permis.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHAU11_S_task_TRANS_bloc-schedule"
+    description: "TOUS LES JOURS aux 10 minutes (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHAU11_S_task_TRANS_bloc"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=10"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_transf_data_bloc"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHAU11_S_task_TRANS_bloc-schedule"
+    description: "TOUS LES JOURS aux 10 minutes (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHAU11_S_task_TRANS_bloc"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=10"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupeeqm task_transf_data_bloc"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHAU11_SVP_EXECUTER_SCRIPT_PROC-schedule"
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHAU11_SVP_EXECUTER_SCRIPT_PROC"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupesvp svp_executer_script_proc"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHAU11_TIMS_MAJ_INDEX_PLAN-schedule"
+    description: "TOUS LES JOURS à 00h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHAU11_TIMS_MAJ_INDEX_PLAN"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupesgi tims_maj_index_plan"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHAU11_TRS_CONSTAT_ELECTRO-schedule"
+    description: "TOUS LES JOURS aux 2 heures entre 8h00 et 18h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHAU11_TRS_CONSTAT_ELECTRO"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T080000 RRULE:FREQ=DAILY;BYHOUR=8,10,12,14,16,18;INTERVAL=1"
+    extra_data:
+      email_recipients: "user@email.com"
+      script_path: "/home/folders/script/groupesitij trs_constat_electro.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHAU11_TRS_CONSTAT_ELECTRO-23h30-schedule"
+    description: "TOUS LES JOURS à 23h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHAU11_TRS_CONSTAT_ELECTRO"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T233000 RRULE:FREQ=DAILY;BYHOUR=23;INTERVAL=1"
+    extra_data:
+      email_recipients: "user@email.com"
+      script_path: "/home/folders/script/groupesitij trs_constat_electro.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHAU11_TRS_groupe-schedule"
+    description: "TOUS LES JOURS à 00h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHAU11_TRS_groupe"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T003000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: "user@email.com"
+      script_path: "/home/folders/script/groupesitij trs_groupe.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHAU11_TRS_REGLEMENTS_OV-schedule"
+    description: "TOUS LES JOURS à 00h02 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHAU11_TRS_REGLEMENTS_OV"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000200 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: "user@email.com"
+      script_path: "/home/folders/script/groupesitij trs_reglements_ov.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CHAU11_TRS_UNICITE_TOPO-schedule"
+    description: "TOUS LES JOURS à 05h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CHAU11_TRS_UNICITE_TOPO"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T053000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: "user@email.com"
+      script_path: "/home/folders/script/groupesitij trs_unicite_topo.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:CUPS_groupeNCHRO_PRINTERS-schedule"
+    description: "TOUS LES JOURS à 05h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:CUPS_groupeNCHRO_PRINTERS"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T050000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/cups_groupenchro_printers.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task5160R_task-schedule"
+    description: "1er du MOIS à 07h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task5160R_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T070000 RRULE:FREQ=MONTHLY;BYMONTHDAY=1;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task5160r.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:DR_task_MAJ_DE_task-schedule"
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:DR_task_MAJ_DE_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T064500 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupedr dr_task_maj_de_task"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:EXTRACTION_DEPOT_COMPARATATIF_2016_task-schedule"
+    description: "TOUS LES JOURS à 18h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:EXTRACTION_DEPOT_COMPARATATIF_2016_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T183000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask extraction_depot_comparatif_2016.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:EXTRACTION_ROLE_COURANT-schedule"
+    description: "TOUS LES JOURS à 02h15 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:EXTRACTION_ROLE_COURANT"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T021500 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: "User@email.com;user@email.com"
+      script_path: "/home/folders/script/groupetask extraction_role_courant.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:EXTRACTION_ROLE_COURANT_SEFA-schedule"
+    description: "TOUS LES JOURS à 00h01 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:EXTRACTION_ROLE_COURANT_SEFA"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000100 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: "User@email.com"
+      script_path: "/home/folders/script/groupetask extraction_role_courant_sefa.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:EXTRACTION_TRANSFERT_SERVICEENLIGNE_task-schedule"
+    description: "LUNDI à 08h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:EXTRACTION_TRANSFERT_SERVICEENLIGNE_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T080000 RRULE:FREQ=WEEKLY;BYDAY=MO;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask extraction_transfer_ServiceEnLigne.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:groupe_task_COMPLETE_INFO_groupe-schedule"
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:groupe_task_COMPLETE_INFO_groupe"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T064500 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupegroupe groupe_task_complete_info_groupe"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task_task_MAJ_DE_task-schedule"
+    description: "LUNDI A VENDREDI à 06h15 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task_task_MAJ_DE_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T061500 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_task_maj_de_task"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task_task_MAJ_DE_task-schedule"
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task_task_MAJ_DE_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T064500 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_task_maj_de_task"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:GP_CHARtaskENT-schedule"
+    description: "LUNDI à 23h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:GP_CHARtaskENT"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T230000 RRULE:FREQ=WEEKLY;BYDAY=MO;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupegp gp_chartaskent"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task_task_MAJ_task-schedule"
+    description: "LUNDI A VENDREDI à 05h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task_task_MAJ_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T053000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_task_maj_task"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task_AVIS_ERREUR_BATCH-schedule"
+    description: "TOUS LES JOURS aux 10 minutes (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task_AVIS_ERREUR_BATCH"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=10"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupeeqm task_avis_erreur_batch"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:taskACTIFOT-schedule"
+    description: "LUNDI A VENDREDI à 12h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:taskACTIFOT"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T123000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupeeqm taskactifot"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:IMPRESSION_CERTIFICATS_task-schedule"
+    description: "LUNDI A VENDREDI à 05h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:IMPRESSION_CERTIFICATS_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T050000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask impression_certificats.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:MAJ_DATE_groupeSTEME(task_task)_task-schedule"
+    description: "LUNDI A SAMEDI à 00h10 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:MAJ_DATE_groupeSTEME(task_task)_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T001000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/task_task/script/maj_date_groupesteme.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:MAJ_DATE_groupeSTEME_task-schedule"
+    description: "TOUS LES JOURS à 00h15 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:MAJ_DATE_groupeSTEME_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T001500 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask maj_date_groupesteme.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task_XML_PROD_task-schedule"
+    description: "LUNDI A VENDREDI à 11H30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task_XML_PROD_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T113000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/task/script/task_XML_PROD.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task_MAJ_FIN-schedule"
+    description: "LUNDI A VENDREDI à 7h20 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task_MAJ_FIN"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T072000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_maj_fin"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:MRQ_task_MAJ_DE_task-schedule"
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:MRQ_task_MAJ_DE_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T064500 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupemrq mrq_task_maj_de_task"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:OTSEQM-schedule"
+    description: "TOUS LES JOURS à 3h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:OTSEQM"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupeot otseqm"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task_INS_EXTRACTION_PERMIS-schedule"
+    description: "LUNDI à 22h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task_INS_EXTRACTION_PERMIS"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T220000 RRULE:FREQ=WEEKLY;BYDAY=MO;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupepvq task_ins_extraction_permis"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task_TRANSFERT_CUQ-schedule"
+    description: "MARDI à 4h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task_TRANSFERT_CUQ"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T040000 RRULE:FREQ=WEEKLY;BYDAY=TU;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupepvq task_transfert_cuq"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:PROC_COND_EGOUT_DELTAH_GEOPROD-schedule"
+    description: "TOUS LES JOURS à 22h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:PROC_COND_EGOUT_DELTAH_GEOPROD"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T220000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupesgi proc_cond_egout_deltah"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task_task_MAJ_ARD_CP-schedule"
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task_task_MAJ_ARD_CP"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T064500 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_task_maj_ard_cp"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:RAPPORTS_BATCH_task (task)-schedule"
+    description: "LUNDI A VENDREDI à 06h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:RAPPORTS_BATCH_task (task)"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T060000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask rapports_batch_task.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:RAPPORTS_BATCH_task_task-schedule"
+    description: "DIMANCHE A JEUDI à 06h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:RAPPORTS_BATCH_task_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T060000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,SU;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/task_task/script/rapports_batch_task.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:RMS_PQ_CARTO-schedule"
+    description: "LUNDI A VENDREDI à 0h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:RMS_PQ_CARTO"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/rms/script/rms_pq_carto.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:S_DA_GET_ET_LOAD_CODES_POSTEAUX-schedule"
+    description: "15 du mois à 00h01 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:S_DA_GET_ET_LOAD_CODES_POSTEAUX"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000100 RRULE:FREQ=MONTHLY;BYMONTHDAY=15;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/da/script/da_pc_ftp.sh;/home/da/script/da_pc_sqlloader.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:S_taskStask_task-schedule"
+    description: "TOUS LES JOURS aux 2 heures entre 8h00 et 18h01 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:S_taskStask_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T080000 RRULE:FREQ=DAILY;BYHOUR=8,10,12,14,16,18;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_reception_batch.sh;/home/folders/script/groupetask task_chartaskent_batch.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:S_OTSCOUT-schedule"
+    description: "LUNDI à 04h15 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:S_OTSCOUT"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T041500 RRULE:FREQ=WEEKLY;BYDAY=MO;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupeot otscout;/home/folders/script/groupeeqm eqmsjum"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:S_PQ_INS_END_GEO_T_SESSION-schedule"
+    description: "DIMANCHE A JEUDI à 18h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:S_PQ_INS_END_GEO_T_SESSION"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T180000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,SU;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupepvq task_ins_end_geo_t"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:task_task_MAJ_DE_task-schedule"
+    description: "LUNDI A VENDREDI à 06h45 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:task_task_MAJ_DE_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T064500 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_task_maj_de_task"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:STATS-schedule"
+    description: "TOUS LES JOURS à 6h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:STATS"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T060000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: "User@email.com"
+      script_path: "/home/STATS/stats.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:TFP_MENAGE_IMP_ET_ARCHIVES-schedule"
+    description: "TOUS LES JOURS à 00h01 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:TFP_MENAGE_IMP_ET_ARCHIVES"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000100 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: "User@email.com"
+      script_path: "/home/folders/script/groupetfp TFP_MENAGE_IMP_ET_ARCHIVES.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:TRANSFERT_TFP_task-schedule"
+    description: "LUNDI A VENDREDI à 06h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:TRANSFERT_TFP_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T060000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask transfert_tfp.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:VENTES_TERRAINS_task-schedule"
+    description: "TOUS LES JOURS à 21h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:VENTES_TERRAINS_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T210000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask ventes_terrains.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:taskQDIX-schedule"
+    description: "TOUS LES JOURS aux 10 minutes à partir de 00h03 - user (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:taskQDIX"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000300 RRULE:FREQ=MINUTELY;INTERVAL=10"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetasknv taskqdix"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:taskQETUDI-schedule"
+    description: "TOUS LES JOURS à 22h00 - user (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:taskQETUDI"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T220000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetasknv taskqetudi"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:taskQETUDIR-schedule"
+    description: "TOUS LES JOURS à 01h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:taskQETUDIR"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T013000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetasknv taskqetudir"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:taskQGTTP-schedule"
+    description: "TOUS LES JOURS aux heures - user (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:taskQGTTP"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=HOURLY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetasknv taskqgttp"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:taskQHEBDO-schedule"
+    description: "SAMEDI à 19h00 (AAP) user"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:taskQHEBDO"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T190000 RRULE:FREQ=WEEKLY;BYDAY=SA;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetasknv taskqhebdo"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:taskQMATIN-schedule"
+    description: "TOUS LES JOURS à 22h00 (AAP) user"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:taskQMATIN"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T220000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetasknv taskqmatin"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:taskQMIDI-schedule"
+    description: "TOUS LES JOURS 12h00 - user (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:taskQMIDI"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T120000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetasknv taskqmidi"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:taskQQUART-schedule"
+    description: "LUNDI A VENDREDI aux 15 minutes entre 07h05 et 17h16 - user (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:taskQQUART"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T080000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=7,8,9,10,11,12,13,14,15,16,17;BYMINUTE=5,20,35,50;INTERVAL=1 EXRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;BYHOUR=17;BYMINUTE=20,35,50;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetasknv taskqquart"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2119"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2240:CHECK_STATUS-schedule"
+    description: "TOUS LES JOURS aux 3 minutes jusqu'à 23h50 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2240:CHECK_STATUS"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=3 EXRULE:FREQ=MINUTELY;BYHOUR=23;BYMINUTE=50,51,52,53,54,55,56,57,58,59;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/mqm/Config/check_status"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2240"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2240:task_MQ_CRPQ-schedule"
+    description: "TOUS LES JOURS aux 30 minutes (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2240:task_MQ_CRPQ"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=30"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetask task_mq_crpq"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2240"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1169:groupeSERASE-schedule"
+    description: "LUNDI A VENDREDI à 05h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1169:groupeSERASE"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T050000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupegroupe groupeserase"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1169"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1169:groupeStask_ABONNEMENT-schedule"
+    description: "1er DU MOIS à 06h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1169:groupeStask_ABONNEMENT"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T060000 RRULE:FREQ=MONTHLY;BYMONTHDAY=1;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupegroupe groupestask_abonnement"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1169"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2028:EXPORT_task-schedule"
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2028:EXPORT_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/task_expdp.sh task_p1 /home/user/script/parfiles/expdp_task_p1.par /exportjour/task"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2028"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2028:EXPORT_taskP-schedule"
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2028:EXPORT_taskP"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/task_expdp.sh taskp_p1 /home/user/script/parfiles/expdp_taskp_p1.par /exportjour/taskp"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2028"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2029:EXPORT_GEOPRQ1-schedule"
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2029:EXPORT_GEOPRQ1"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/task_expdp.sh geoprq1_p2 /home/user/script/parfiles/expdp_geoprq1_p2.par /exportjour/geoprq1"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2029"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2040:EXPORT_GEOPROD-schedule"
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2040:EXPORT_GEOPROD"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: "user@email.com"
+      script_path: "/home/user/script/task_expdp.sh geoprod_p1 /home/user/script/parfiles/expdp_geoprod_p1.par /exportjour/geoprod"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2040"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2042:EXPORT_CHAU11-schedule"
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2042:EXPORT_CHAU11"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/task_expdp.sh chau11_p3 /home/user/script/parfiles/expdp_chau11_p3.par /exportjour/chau11"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2042"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2044:EXPORT_MAXPROD-schedule"
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2044:EXPORT_MAXPROD"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/task_expdp.sh maxprod_p3 /home/user/script/parfiles/expdp_maxprod_p3.par /exportjour/maxprod"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2044"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2207:task_TRANSFERTS_ECHANGE_LEV-schedule"
+    description: "TOUS LES JOURS aux 20 minutes (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2207:task_TRANSFERTS_ECHANGE_LEV"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=20"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/task_lev_prd/script/task_transferts_echange_lev"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2207"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2236:EXPORT_CDB-schedule"
+    description: "TOUS LES JOURS à 04h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2236:EXPORT_CDB"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T040000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/backupPDB.py"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2236"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2236:EXPORT_EP11-schedule"
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2236:EXPORT_EP11"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/task_expdp.sh ep11_s /home/user/script/parfiles/expdp_ep11_s.par /exportjour/ep11"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2236"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2304:EXPORT_BD_taskQP-schedule"
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2304:EXPORT_BD_taskQP"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/task_expdp.sh taskqp /home/user/script/parfiles/expdp_taskqp.par /exportbd/taskqp"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2304"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2304:EXPORT_BD_taskQPREC-schedule"
+    description: "TOUS LES JOURS à 21h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2304:EXPORT_BD_taskQPREC"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T210000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/task_expdp.sh taskqprec /home/user/script/parfiles/expdp_taskqprec.par /exportbd/taskqprec"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2304"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2304:ORS_EPURE_user-schedule"
+    description: "LUNDI ET VENDREDI à 00h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2304:ORS_EPURE_user"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupeuser ors_epure_user"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2304"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2304:S_task_STAT-schedule"
+    description: "SAMEDI à 05h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2304:S_task_STAT"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T053000 RRULE:FREQ=WEEKLY;BYDAY=SA;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupeuser ors_gen_stats;/home/folders/script/groupeuser ors_exec_stats"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2304"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2304:S_groupeESLOGJ-schedule"
+    description: "LUNDI A VENDREDI à 06h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2304:S_groupeESLOGJ"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T063000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupegroupe groupesgroupe;/home/folders/script/groupegroupe groupeslog1"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2304"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2304:task_RELEVES_EMPLOI-schedule"
+    description: "TOUS LES JOURS aux 10 minutes entre 07h00 et 17h01 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2304:task_RELEVES_EMPLOI"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T070000 RRULE:FREQ=DAILY;BYHOUR=7,8,9,10,11,12,13,14,15,16,17;BYMINUTE=0,10,20,30,40,50;INTERVAL=1 EXRULE:FREQ=DAILY;BYHOUR=17;BYMINUTE=10,20,30,40,50;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetasknv task_releves_emploi"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2304"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2304:taskQtaskHCR-schedule"
+    description: "TOUS LES JOURS à 02h30 - user (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2304:taskQtaskHCR"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T023000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetasknv taskqtaskhcr"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2304"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2482-EXPORT_BD_taskPRS1-schedule"
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2482-EXPORT_BD_taskPRS1"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/task_expdp.sh taskprs1 /home/user/script/parfiles/expdp_taskprs1.par /exportbd/taskprs1"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2482"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2482-EXPORT_BD_taskSP2-schedule"
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2482-EXPORT_BD_taskSP2"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/task_expdp.sh tasksp2 /home/user/script/parfiles/expdp_tasksp2.par /exportbd/tasksp2"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2482"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2482:task_FTP_EMPLOYES_SHER-schedule"
+    description: "LUNDI A VENDREDI à 16h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2482:task_FTP_EMPLOYES_SHER"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T163000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupetasksh task_ftp_employes_sher"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2482"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2482:task_TRANSFERT_FTP3_SHER-schedule"
+    description: "TOUS LES JOURS aux 15 minutes (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2482:task_TRANSFERT_FTP3_SHER"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=15"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/task_she_prd/script/task_transferts_ftp3_sher"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2482"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host1582:STOP_START_FMW_DIMANCHE-schedule"
+    description: "TOUS LES DIMANCHE à 09h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host1582:STOP_START_FMW_DIMANCHE"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T090000 RRULE:FREQ=WEEKLY;BYDAY=SU;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/stop_start_fmw_dimanche.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host1582"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2026:MAJ_ROLE_GEOMATIQUE-schedule"
+    description: "TOUS LES JOURS à 18h20 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2026:MAJ_ROLE_GEOMATIQUE"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T182000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupesde maj_roles_geomatique"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2026"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2050:MAJ_DATE_groupeSTEME(task)-schedule"
+    description: "LUNDI A VENDREDI à 06h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2050:MAJ_DATE_groupeSTEME(task)"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T060000 RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/task/script/maj_date_groupesteme.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2050"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2052:EXPORT_CDB-schedule"
+    description: "TOUS LES JOURS à 04h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2052:EXPORT_CDB"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T040000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/backupPDB.py"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2052"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2052:PVQ_SESAME-schedule"
+    description: "TOUS LES JOURS aux 5 minutes (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2052:PVQ_SESAME"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=5"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/folders/script/groupepvq pvq_sesame"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2052"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2167:ORS_EBS_REFRESH_ALL-schedule"
+    description: "MERCREDI à 0h30 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2167:ORS_EBS_REFRESH_ALL"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T003000 RRULE:FREQ=WEEKLY;BYDAY=WE;INTERVAL=1"
+    extra_data:
+      email_recipients: "User@email.com"
+      script_path: "/home/user/script/ebs_refresh/ors_ebs_refresh_all"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2167"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2307:STOP_START_ALL_SPOOLER_task-schedule"
+    description: "TOUS LES JOURS à 06h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2307:STOP_START_ALL_SPOOLER_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T060000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/stop_spooler_task_QUE_DEV_CV;/home/user/script/start_spooler_task_QUE_DEV_CV"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2307"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2464:STOP_START_ALL_SPOOLER_task-schedule"
+    description: "TOUS LES JOURS à 06h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2464:STOP_START_ALL_SPOOLER_task"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T060000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/stop_spooler_task_SHE_TST_CV;/home/user/script/start_spooler_task_SHE_TST_CV"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host2464"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host0855:VALIDATIONBDDEV-schedule"
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host0855:VALIDATIONBDDEV"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/validation/validationBdDev.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host0855"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host0855:VALIDATIONBDPROD-schedule"
+    description: "TOUS LES JOURS à 03h00 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host0855:VALIDATIONBDPROD"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T030000 RRULE:FREQ=DAILY;INTERVAL=1"
+    extra_data:
+      email_recipients: ""
+      script_path: "/home/user/script/validation/validationBdProd.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "false"
+      target_hosts: "host0855"
+      user_to_execute_task: "user"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+  - name: "|Dev|-host2119:taskQaction-scheduled"
+    description: "TOUS LES JOURS aux 30 minutes de 6h00 à 23h59 (AAP)"
+    enabled: "True"
+    unified_job_template: "|Dev|-host2119:taskQaction"
+    inventory: ""
+    limit: ""
+    rrule: "DTSTART;TZID=America/Toronto:20240125T060000 RRULE:FREQ=DAILY;BYHOUR=6,7,8,9,10,11,12,13,14,15,16,17,18,20,21,22,23;BYMINUTE=0,30;INTERVAL=1"
+    extra_data: ""
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "check"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "3"
+    state: "present"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "|Dev|-"
+
+
+...

@@ -1,0 +1,24 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# Yaml List Example :
+# ---
+# controller_settings:
+#   - name: DAUTH_LDAP_USER_DN_TEMPLATE
+#     value: "uid=%(user)s,ou=Users,dc=example,dc=com"
+#   - name: AUTH_LDAP_BIND_PASSWORD
+#     value: "password"
+#
+# Yaml Dict Example
+# ---
+# controller_settings:
+#   settings:
+#     AUTH_LDAP_USER_DN_TEMPLATE: "uid=%(user)s,ou=Users,dc=example,dc=com"
+#     AUTH_LDAP_BIND_PASSWORD: "password"
+# 
+# -------------------------------------------------------------------------------------------------------------------------------
+
+# controller_settings:  # À décommenter au besoin...
+
+...

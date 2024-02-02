@@ -1,0 +1,29 @@
+---
+# Commande d'exécution :
+#
+# ansible-playbook copyFilesForSetup.yml
+#
+- name: Copier les fichiers d'inventaire pour le 'Setup'.
+  hosts: localhost
+  connection: local
+  become: true
+  gather_facts: false
+
+  vars:
+    pathDestination: /home/ansible-automation-platform-setup-2.4-3
+    filenamesToCopy:
+      - inventory
+      - credentials.yml
+      - controller_license_file
+
+  tasks:
+    - name: Copier les fichiers 'filenamesToCopy' dans 'pathDestination'.
+      ansible.builtin.copy:
+        src: "{{ item }}"
+        dest: "{{ pathDestination }}/."
+        decrypt: false
+        owner: user
+        mode: '0644'
+      loop: "{{ filenamesToCopy }}"
+
+...

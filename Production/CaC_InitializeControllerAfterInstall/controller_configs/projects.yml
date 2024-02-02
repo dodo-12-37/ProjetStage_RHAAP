@@ -1,0 +1,119 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_projects:
+#   - name: "Shares_list"
+#     # new_name: "Shares_list2"
+#     # copy_from: "Demo Project"
+#     description: "1er essais véritable"
+#     organization: "Ville de Quebec"
+#     scm_type: "git"
+#     scm_url: "ssh://git@ssh.github.com:443/dodo1237/ProjetRHAAP.git"
+#     default_environment: "Default"
+#     local_path: ""
+#     scm_branch: "main"
+#     scm_refspec: ""
+#     scm_credential: "GithubVDQ-dodo1237-SSH-ansibleGlobal"  # or credential: ""
+#     tasknature_validation_credential: ""
+#     scm_clean: "True"
+#     scm_delete_on_update: "False"
+#     scm_track_submodules: ""
+#     scm_update_on_launch: "True"
+#     scm_update_cache_timeout: "0"
+#     allow_override: "False"
+#     timeout: 0
+#     custom_virtualenv: ""
+#     notification_templates_started: []
+#     notification_templates_success:
+#       - "Notify Email to DODO"
+#     notification_templates_error: []
+#     state : present
+#     wait: false
+#     update_project: false
+#     interval : "{{ controller_configuration_projects_agroupenc_delay }}"
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+controller_projects:  # À décommenter au besoin...
+  - name: "{{ name_prefix }}CaC_CreateWorflowsFromTheGenericJob"
+    description: "RHAAP Configuration as Code : Projet pour créer \"simplement\" des Workflows utilisant le Playbook Générique à partir d'une liste de paramètres."
+    organization: "Ville de Quebec"
+    scm_type: "git"
+    scm_url: "https://vdq@dev.azure.com/vdq/RHAAP/_git/CaC_CreateWorflowsFromTheGenericJob"
+    scm_credential: "AzureVDQ_RHAAP_Dominique.Lebrun"
+    scm_branch: "main"
+    scm_clean: "True"
+    scm_delete_on_update: "False"
+    scm_update_on_launch: "True"
+    scm_update_cache_timeout: "0"
+    allow_override: "False"
+    timeout: 0
+    notification_templates_error:
+      - "Notify Email to Denis"
+
+  - name: "{{ name_prefix }}CaC_InitializeControllerAfterInstall"
+    description: "RHAAP Configuration as Code : Projet pour INITIALISER rapidement les premiers Objets (Users, Teams, Organizations, Settings, Projets, Inventories, Credentials, Execution Environment) dans RHAAP après une installation."
+    organization: "Ville de Quebec"
+    scm_type: "git"
+    scm_url: "https://vdq@dev.azure.com/vdq/RHAAP/_git/CaC_InitializeControllerAfterInstall"
+    scm_credential: "AzureVDQ_RHAAP_Dominique.Lebrun"
+    scm_branch: "main"
+    scm_clean: "True"
+    scm_delete_on_update: "False"
+    scm_update_on_launch: "True"
+    scm_update_cache_timeout: "0"
+    allow_override: "False"
+    timeout: 0
+    notification_templates_error:
+      - "Notify Email to Denis"
+
+  - name: "{{ name_prefix }}GenericJob_RunScript-SendMails"
+    description: "Dépôt pour stocker le Playbook Générique GenericJob_RunScript-SendMails.yml. Ce Playbook sera utilisé par une grande quantité de Workflows pour exécuter un script sur le Host et ensuite avertir du résultat par courriels."
+    organization: "Ville de Quebec"
+    scm_type: "git"
+    scm_url: "https://vdq@dev.azure.com/vdq/RHAAP/_git/GenericJob_RunScript-SendMails"
+    scm_credential: "AzureVDQ_RHAAP_Dominique.Lebrun"
+    scm_branch: "main"
+    scm_clean: "True"
+    scm_delete_on_update: "False"
+    scm_update_on_launch: "True"
+    scm_update_cache_timeout: "0"
+    allow_override: "False"
+    timeout: 0
+    notification_templates_error:
+      - "Notify Email to Denis"
+
+  - name: "{{ name_prefix }}InstallAAP"
+    description: "Repos servant à stocker le fichier d'inventaire servant pour l'installation de AAP."
+    organization: "Ville de Quebec"
+    scm_type: "git"
+    scm_url: "https://vdq@dev.azure.com/vdq/RHAAP/_git/InstallAAP"
+    scm_credential: "AzureVDQ_RHAAP_Dominique.Lebrun"
+    scm_branch: "main"
+    scm_clean: "True"
+    scm_delete_on_update: "False"
+    scm_update_on_launch: "True"
+    scm_update_cache_timeout: "0"
+    allow_override: "False"
+    timeout: 0
+    notification_templates_error:
+      - "Notify Email to Denis"
+
+  - name: "{{ name_prefix }}ManageEE_VDQ"
+    description: "Dépôt servant à définir les paramètres nécessaires pour Construire/Publier/Exécuter l'image EE principale pour l'organisation de la Ville De Québec."
+    organization: "Ville de Quebec"
+    scm_type: "git"
+    scm_url: "https://vdq@dev.azure.com/vdq/RHAAP/_git/ManageEE_VDQ"
+    scm_credential: "AzureVDQ_RHAAP_Dominique.Lebrun"
+    scm_branch: "main"
+    scm_clean: "True"
+    scm_delete_on_update: "False"
+    scm_update_on_launch: "True"
+    scm_update_cache_timeout: "0"
+    allow_override: "False"
+    timeout: 0
+    notification_templates_error:
+      - "Notify Email to Denis"
+      
+...

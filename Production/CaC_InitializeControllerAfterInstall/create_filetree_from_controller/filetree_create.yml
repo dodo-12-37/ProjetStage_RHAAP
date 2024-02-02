@@ -1,0 +1,89 @@
+---
+# Commande d'exécution :
+#
+# ansible-playbook filetree_create.yml --ask-vault-pass
+#
+- name: "Créer un arborescense de fichiers contenant tous les types d'objets de RHAAP."
+  # hosts: localhost
+  hosts: controllerHost.local
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - ../vault.yml  # Contient le mot de passe pour déchiffrer le fichier vault
+
+  vars:
+    debug: true
+    deleteOldFiles: true
+    flatten_output: true
+
+    output_path: "{{ output_path_normal if (flatten_output == false) else output_path_flatten }}"
+    output_path_normal: "/tmp/filetree_output"
+    output_path_flatten: "{{ output_path_normal }}_flatten"
+
+    controller_configuration_projects_agroupenc_retries: 60
+    controller_configuration_projects_agroupenc_delay: 2
+    controller_username: "{{ vault_controller_username }}"
+    controller_password: "{{ vault_controller_password }}"
+    controller_hostname: "{{ vault_controller_hostname }}"
+    controller_validate_certs: "{{ vault_controller_validate_certs | bool }}"
+
+  pre_tasks:
+    - name: Delete old files if deleteOldFiles is true
+      when: deleteOldFiles is true
+      block:
+        - name: Find files to delete if deleteOldFiles is true
+          ansible.builtin.find:
+            paths: "{{ output_path }}"
+            patterns: "*.yaml"
+          register: files_to_delete
+
+        - name: Debug files_to_delete if deleteOldFiles and debug is true
+          ansible.builtin.debug:
+            var: files_to_delete.files | map(attribute='path') | list
+          when:
+            - debug is true
+
+        - name: Remove file if deleteOldFiles is true
+          ansible.builtin.file:
+            path: "{{ item.path }}"
+            state: absent
+          with_items: "{{ files_to_delete.files }}"
+
+    - name: "Setup authentication (block)"
+      when: controller_oauthtoken is not defined
+      no_log: "{{ controller_configuration_filetree_create_secure_logging | default('false') }}"
+      tags:
+        - always
+      block:
+        - name: "Get the Authentication Token for the future requests"
+          ansible.builtin.uri:
+            url: "https://{{ controller_hostname }}/api/v2/tokens/"
+            user: "{{ controller_username }}"
+            password: "{{ controller_password }}"
+            method: POST
+            force_basic_auth: true
+            validate_certs: "{{ controller_validate_certs }}"
+            status_code: 201
+          register: authtoken_res
+
+        - name: "Set the oauth token to be used since now"
+          ansible.builtin.set_fact:
+            controller_oauthtoken: "{{ authtoken_res.json.token }}"
+            controller_oauthtoken_url: "{{ authtoken_res.json.url }}"
+
+  roles:
+    - infra.controller_configuration.filetree_create
+
+  post_tasks:
+    - name: "Delete the Authentication Token used"
+      ansible.builtin.uri:
+        url: "https://{{ controller_hostname }}{{ controller_oauthtoken_url }}"
+        user: "{{ controller_username }}"
+        password: "{{ controller_password }}"
+        method: DELETE
+        force_basic_auth: true
+        validate_certs: "{{ controller_validate_certs }}"
+        status_code: 204
+      when: controller_oauthtoken_url is defined
+...

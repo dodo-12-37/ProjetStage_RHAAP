@@ -1,0 +1,17 @@
+---
+- name: Hello World !!!
+  hosts: all
+  # hosts: Satellite
+  gather_facts: false
+  remote_user: ansible
+
+  tasks:
+    - name: Ping my hosts
+      ansible.builtin.ping:
+      register: result
+
+    - name: Print message
+      ansible.builtin.debug:
+        msg: "Hello world : {{ result }}"
+
+...

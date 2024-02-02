@@ -1,0 +1,202 @@
+---
+controller_templates:  # Nom de la variable parent.
+  - name: "|PROD|-GenericJob_RunScript-SendMails"
+    description: "Playbook Générique GenericJob_RunScript-SendMails.yml. Ce Playbook sera utilisé par une grande quantité de Workflows pour exécuter un script sur le Host et ensuite avertir du résultat par courriels."
+    execution_environment: "vdq_default_ee"
+    job_type: "check"
+    inventory: "Satellite"
+    organization: "Ville de Quebec"
+    project: "GenericJob_RunScript-SendMails"
+    playbook: "ScriptAndMailInput.yml"
+    credentials:
+      - "Global SSH Ansible User Credential"
+    forks: 0
+    limit: ""
+    verbosity: "3"
+    extra_vars: {}
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    diff_mode: false
+    use_fact_cache: false
+    host_config_key: ""
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_variables_on_launch: false
+    ask_limit_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_inventory_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_labels_on_launch: false
+    ask_timeout_on_launch: false
+    prevent_instance_group_fallback: false
+    become_enabled: true
+    allow_simultaneous: true
+    timeout: 0
+    instance_groups: []
+    job_slice_count: 1
+    webhook_service: ""
+    webhook_credential: ""
+    scm_branch: ""
+    labels:
+      - "VDQ"
+      - "Global SSH Ansible User Credential"
+      - "Satellite inventory"
+      - "Playbook Générique"
+      - "|PROD|-"
+    custom_virtualenv: ""
+    notification_templates_started: []
+    notification_templates_success: []
+    notification_templates_error: []
+    state: "present"
+    survey_enabled: true
+    survey_spec:  # or survey: {}
+      description: ''
+      name: ''
+      spec:
+      - choices: ''
+        default: Satellite
+        max: 1024
+        min: 0
+        new_question: true
+        question_description: target_hosts = Satellite
+        question_name: Entrez une liste de cibles (Hosts/Groups) séparées par des virgules. (Satellite)
+        required: true
+        type: text
+        variable: target_hosts
+
+      - choices: ''
+        default: ansible
+        max: 1024
+        min: 0
+        new_question: true
+        question_description: user_to_execute_task = ansible
+        question_name: Utilisateur pour exécuter la tâche sur l'ordinateur distant. (ansible)
+        required: true
+        type: text
+        variable: user_to_execute_task
+
+      - choices: ''
+        default: ''
+        max: 1024
+        min: 0
+        new_question: true
+        question_description: script_path = ''
+        question_name: Entrez le chemin (path) vers le script. (null)
+        required: true
+        type: text
+        variable: script_path
+
+      - choices: ''
+        default: ""
+        max: 1024
+        min: 0
+        new_question: true
+        question_description: email_recipients = Denis Desmarais <User@email.com>
+        question_name: Entrez une liste d'adresses email séparées par des virgules. ("")
+        required: true
+        type: text
+        variable: email_recipients
+
+      - choices:
+        - 'true'
+        - 'false'
+        - ''
+        default: 'false'
+        max: 1024
+        min: 0
+        new_question: true
+        question_description: send_email_on_success = false
+        question_name: Envoyer un email en cas de succès du script ? (false)
+        required: true
+        type: multiplechoice
+        variable: send_email_on_success
+
+      - choices:
+        - 'true'
+        - 'false'
+        - ''
+        default: 'true'
+        max: 1024
+        min: 0
+        new_question: true
+        question_description: send_email_on_failure = true
+        question_name: Envoyer un email en cas d'échec du script ? (true)
+        required: true
+        type: multiplechoice
+        variable: send_email_on_failure
+
+  - name: "|PROD|-satelliteHost:CREE_SHARE_LIST"
+    description: "test: À chaque 30 minutes (AAP)"
+    execution_environment: "vdq_default_ee"
+    job_type: "check"
+    inventory: "Satellite"
+    organization: "Ville de Quebec"
+    project: "GenericJob_RunScript-SendMails"
+    playbook: "ScriptAndMailInput.yml"
+    credentials:
+      - "Global SSH Ansible User Credential"
+    forks: 0
+    limit: "satelliteHost.local"
+    verbosity: "3"
+    extra_vars:
+      email_recipients: "dominique.lebrun@email.com"
+      script_path: "/home/ansible/shares/cree_csv.sh"
+      send_email_on_failure: "true"
+      send_email_on_success: "true"
+      target_hosts: "satelliteHost.local"
+      user_to_execute_task: "user"
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    diff_mode: false
+    use_fact_cache: false
+    host_config_key: ""
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_variables_on_launch: false
+    ask_limit_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_inventory_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_labels_on_launch: false
+    ask_timeout_on_launch: false
+    prevent_instance_group_fallback: false
+    become_enabled: true
+    allow_simultaneous: false
+    timeout: 0
+    instance_groups: []
+    job_slice_count: 1
+    webhook_service: ""
+    webhook_credential: ""
+    scm_branch: ""
+    labels:
+      - "VDQ"
+      - "Global SSH Ansible User Credential"
+      - "Satellite inventory"
+      - "Playbook Générique"
+      - "|PROD|-"
+    custom_virtualenv: ""
+    notification_templates_started: []
+    notification_templates_success: []
+    notification_templates_error: []
+    state: "present"
+    survey_enabled: false
+    
+...

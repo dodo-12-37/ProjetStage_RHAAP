@@ -1,0 +1,56 @@
+---
+# Commande d'exécution :
+#
+# ansible-playbook CreateWorflowsFromTheGenericJob.yml --ask-vault-pass
+#
+- name: Configure automation controller
+  hosts: localhost
+  connection: local
+  become: true
+  gather_facts: false
+
+  vars_files:
+    - vars/controller_configs/controller_auth.yml
+    - vars/jobTemplates_vars_list.yml
+    - vars/workflows_vars_list.yml
+
+  vars:
+    looping_files:
+      - labels
+      - job_templates
+      - workflow_job_templates
+      - schedules
+    global_vars:
+      organization: "Ville de Quebec"
+      inventory: Satellite
+      state: present
+      job_type: check
+      enabled: true
+      verbosity: 3
+      execution_environment: "vdq_default_ee"
+      timezone: "America/Toronto"
+      name_prefix: "|Dev|-"
+      # name_prefix: ""
+      ### Description: Concidérer ceci avant de changer la 'current_date'.
+      ## Une Schedule ne peut être modifier si elle existe déjà dans RHAAP. Supprimer les Schedules à modifier avant d'exécuter le changement.
+      # current_date: "{{ now(false, '%Y-%m-%d') }}"
+      current_date: "2024-01-25"
+
+  pre_tasks:
+    - name: Créer les fichiers de variables finaux à partir des templates.
+      ansible.builtin.template:
+        src: "templates/{{ item }}.yml.j2"
+        dest: "vars/controller_configs/controller_{{ item }}.yml"
+        owner: user
+        mode: '0644'
+      loop: "{{ looping_files }}"
+
+    - name: Inclure les fichiers de variables finaux créé précédemment.
+      ansible.builtin.include_vars:
+        file: "vars/controller_configs/controller_{{ item }}.yml"
+      loop: "{{ looping_files }}"
+
+  roles:
+    - {role: infra.controller_configuration.dispatch, when: jobTemplates_vars is defined and workflows_vars is defined}
+
+...

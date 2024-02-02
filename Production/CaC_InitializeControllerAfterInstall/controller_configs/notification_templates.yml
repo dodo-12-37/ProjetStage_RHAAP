@@ -1,0 +1,50 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_notifications:
+#   - name: "Notify Email to D&D"
+#     # new_name: "Notify Email to D&D V2"
+#     description: "Demo"
+#     organization: "Ville de Quebec"
+#     notification_type: "email"
+#     notification_configuration:
+#       host: "localhost"
+#       port: 25
+#       sender: "user@controllerHost.local"
+#       timeout: 30
+#       use_ssl: False
+#       use_tls: False
+#       password: ""
+#       username: ""
+#       recipients: ['Dominique.Lebrun@email.com', 'User@email.com']
+#     messages:
+#       success:
+#         body: '{"fields": {"project": {"id": "11111"},"summary": "Lab {  { job.status
+#           }} Ansible controller {  { job.name }}","description": "{  { job.status }} in {  {
+#           job.name }} {  { job.id }} {  {url}}","issuetype": {"id": "1"}}}'
+#     state: present
+#
+#   - name: "Notify Email to DODO"
+#     copy_from: "Notify Email to D&D"
+#     notification_configuration:
+#       recipients: ['Dominique.Lebrun@email.com']
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+controller_notifications:  # À décommenter au besoin...
+  - name: "Notify Email to Denis"
+    organization: "Ville de Quebec"
+    notification_type: "email"
+    notification_configuration:
+      host: "localhost"
+      port: 25
+      sender: "user@controllerHost.local"
+      timeout: 30
+      use_ssl: False
+      use_tls: False
+      password: ""
+      username: ""
+      recipients: ['User@email.com']
+
+...

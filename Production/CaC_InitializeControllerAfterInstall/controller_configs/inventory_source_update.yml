@@ -1,0 +1,17 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_inventory_sources:
+#   - name: "Satellite"
+#     inventory: "Satellite"
+#     organization: "Ville de Quebec"
+#     wait: "true"
+#     interval: "{{ controller_configuration_inventory_source_update_agroupenc_delay }}"
+#     timeout: 0
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+# controller_inventory_sources:  # À décommenter au besoin...
+
+...

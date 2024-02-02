@@ -1,0 +1,124 @@
+---
+{# #
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_workflows:
+#   - name: "satelliteHost:CREE_SHARE_LIST"
+#     # new_name: "satelliteHost:CREE_SHARE_LIST V2"
+#     # copy_from: "GenericWorkflow_Template"
+#     description: "Creer une liste de tous les shares cifs et nfs de nos serveurs. satelliteHost.local"
+#     organization: "Ville de Quebec"
+#     ask_inventory_on_launch: false
+#     ask_limit_on_launch: false
+#     ask_scm_branch_on_launch: false
+#     ask_variables_on_launch: false
+#     extra_vars:
+#       email_recipients: Dominique Lebrun <dominique.lebrun@email.com>
+#       script_path: /home/ansible/shares/cree_csv.sh
+#       send_email_on_failure: 'true'
+#       send_email_on_success: 'true'
+#       target_hosts: Shares_list
+#       user_to_execute_task: user
+#     allow_simultaneous: "false"
+#     inventory: ""
+#     limit: ""
+#     labels:
+#       - "Credential-Global SSH Ansible User Credential"
+#       - "Shares_list"
+#       - "test"
+#       - "TEST_API_Created-Object"
+#     ask_labels_on_launch: false
+#     job_tags: ""
+#     skip_tags: ""
+#     ask_tags_on_launch: false
+#     ask_skip_tags_on_launch: false
+#     notification_templates_approvals:
+#       - "Notify Email to DODO"
+#     notification_templates_started:
+#       - "Notify Email to DODO"
+#     notification_templates_success:
+#       - "Notify Email to DODO"
+#     notification_templates_error:
+#       - "Notify Email to DODO"
+#     scm_branch: ""
+#     state: "present"
+#     simplified_workflow_nodes:  # workflow_nodes
+#       - identifier: "node_1"
+#         workflow_job_template: "satelliteHost:CREE_SHARE_LIST"
+#         unified_job_template: "Shares_list-JOB_Script_Mail"
+#         lookup_organization: ""
+#         execution_environment: ""
+#         forks: ""
+#         instance_groups: ""
+#         job_slice_count: 0
+#         labels:
+#           - "test"
+#           - "TEST_API_Created-Object"
+#         timeout: 0
+#         approval_node: ""
+#         organization: "Ville de Quebec"
+#         all_parents_must_converge: "false"
+#         always_nodes: []
+#         failure_nodes: []
+#         success_nodes: []
+#         verbosity: ""
+#         state: present
+#         credentials: []
+#         diff_mode: false
+#         extra_data: {}
+#         inventory: ""
+#         job_tags: ""
+#         job_type: ""
+#         limit: ""
+#         scm_branch: ""
+#         skipt_tags: ""
+#     destroy_current_nodes: {}
+#     survey_enabled: false
+#     survey_spec:  # or survey: {}
+#       description: ''
+#       name: ''
+#       spec: []
+#     webhook_service: ""
+#     webhook_credential: ""
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+#}
+controller_workflows:  # Nom de la variable parent.
+{% for workflow in workflows_vars %}
+  - name: "{{ global_vars.name_prefix }}{{ workflow.name }}"
+    description: "{{ workflow.description }}"
+    organization: "{{ global_vars.organization }}"
+    state: "{{ global_vars.state }}"
+    limit: "{{ workflow.work_vars.target_hosts }}"
+    simplified_workflow_nodes:
+{% for node in workflow.node_vars %}
+      - identifier: "{{ node.name }}"
+        workflow_job_template: "{{ global_vars.name_prefix }}{{ workflow.name }}"
+        unified_job_template: "{{ global_vars.name_prefix }}GenericJob_RunScript-SendMails"
+        organization: "{{ global_vars.organization }}"
+        all_parents_must_converge: "false"
+        extra_data:
+          email_recipients: "{{ node.job_vars.email_recipients | default(workflow.work_vars.email_recipients) }}"
+          script_path: "{{ node.job_vars.script_path | default(workflow.work_vars.script_path) }}"
+          send_email_on_failure: "{{ node.job_vars.send_email_on_failure | default(workflow.work_vars.send_email_on_failure) }}"
+          send_email_on_success: "{{ node.job_vars.send_email_on_success | default(workflow.work_vars.send_email_on_success) }}"
+          target_hosts: "{{ node.job_vars.target_hosts | default(workflow.work_vars.target_hosts) }}"
+          user_to_execute_task: "{{ node.job_vars.user_to_execute_task | default(workflow.work_vars.user_to_execute_task) }}"
+        success_nodes: {{ node.success_nodes | from_yaml }}
+        failure_nodes: {{ node.failure_nodes | from_yaml }}
+        always_nodes: {{ node.always_nodes | from_yaml }}
+{% endfor %}
+    ask_variables_on_launch: "false"
+    allow_simultaneous: "false"
+    scm_branch: "main"
+    webhook_service: ""
+    ask_tags_on_launch: "false"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "{{ global_vars.name_prefix }}"
+    survey_enabled: false
+
+{% endfor %}
+
+...

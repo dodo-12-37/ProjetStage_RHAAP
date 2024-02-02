@@ -1,0 +1,22 @@
+version: 3
+
+images:
+  base_image:
+    name: 'registry.redhat.io/ansible-automation-platform-24/de-minimal-rhel8:latest'
+
+dependencies:
+  galaxy:
+    collections:
+      - ansible.eda
+  python:
+    - six
+    - psutil
+    - ansible-rulebook
+    # - drools-jpy
+  groupestem:
+    - iputils [platform:rpm]
+  python_interpreter:
+    package_groupestem: "python39"
+
+options:
+  package_manager_path: /usr/bin/microdnf

@@ -1,0 +1,100 @@
+---
+{# #
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_schedules:
+#   - name: "Hebdomadaire le vendredi 12h"
+#     # new_name: "Hebdomadaire le vendredi 12h - V2"
+#     description: ""
+#     rrule: "DTSTART;TZID=America/Toronto:20231222T120000 RRULE:INTERVAL=1;FREQ=WEEKLY;BYDAY=FR"
+#     extra_data:
+#       {}
+#     inventory: "Shares_list"
+#     credentials: []
+#     scm_branch: ""
+#     execution_environment: ""
+#     forks: 0
+#     instance_groups: ""
+#     job_slice_count: 0
+#     labels: []
+#     timeout: 0
+#     job_type: ""
+#     job_tags: ""
+#     skip_tags: ""
+#     limit: ""
+#     diff_mode: false
+#     verbosity: 0
+#     unified_job_template: "$GenericJob_RunScript_SendMails"
+#     organization: ""
+#     enabled: true
+#     state: present
+#     dtstart: "2023-12-22T17:00:00Z"
+#     dtend: ""
+#     timezone: "America/Toronto"
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+#}
+controller_schedules:   # Nom de la variable parent.
+{% for jobTemplate in jobTemplates_vars %}
+{% for schedule in jobTemplate.schedules %}
+  - name: "{{ global_vars.name_prefix }}{{ schedule.name }}"
+    description: "{{ schedule.description }}"
+    enabled: "{{ global_vars.enabled }}"
+    unified_job_template: "{{ global_vars.name_prefix }}{{ jobTemplate.name }}"
+    inventory: ""
+    limit: ""
+    rrule: "{{ query('awx.awx.schedule_rruleset', global_vars.current_date + ' ' + schedule.starting_hour, rules=schedule.rrules_params, timezone=global_vars.timezone) }}"
+    extra_data:
+      email_recipients: "{{ jobTemplate.job_vars.email_recipients }}"
+      script_path: "{{ jobTemplate.job_vars.script_path }}"
+      send_email_on_failure: "{{ jobTemplate.job_vars.send_email_on_failure }}"
+      send_email_on_success: "{{ jobTemplate.job_vars.send_email_on_success }}"
+      target_hosts: "{{ jobTemplate.job_vars.target_hosts }}"
+      user_to_execute_task: "{{ jobTemplate.job_vars.user_to_execute_task }}"
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "{{ global_vars.job_type }}"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "{{ global_vars.verbosity }}"
+    state: "{{ global_vars.state }}"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "{{ global_vars.name_prefix }}"
+
+{% endfor %}
+{% endfor %}
+
+
+{% for workflow in workflows_vars %}
+{% for schedule in workflow.schedules %}
+  - name: "{{ global_vars.name_prefix }}{{ schedule.name }}"
+    description: "{{ schedule.description }}"
+    enabled: "{{ global_vars.enabled }}"
+    unified_job_template: "{{ global_vars.name_prefix }}{{ workflow.name }}"
+    inventory: ""
+    limit: ""
+    rrule: "{{ query('awx.awx.schedule_rruleset', global_vars.current_date + ' ' + schedule.starting_hour, rules=schedule.rrules_params, timezone=global_vars.timezone) }}"
+    extra_data: ""
+    scm_branch: ""
+    forks: 0
+    job_slice_count: 0
+    timeout: 0
+    job_type: "{{ global_vars.job_type }}"
+    job_tags: ""
+    skip_tags: ""
+    verbosity: "{{ global_vars.verbosity }}"
+    state: "{{ global_vars.state }}"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "Scheduled"
+      - "{{ global_vars.name_prefix }}"
+
+{% endfor %}
+{% endfor %}
+...

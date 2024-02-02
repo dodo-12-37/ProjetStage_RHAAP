@@ -1,0 +1,99 @@
+version: 3
+
+# build_arg_defaults: 
+  # ANSIBLE_GALAXY_CLI_COLLECTION_OPTS: '--pre'
+  # EE_BASE_IMAGE: 'registry.redhat.io/ansible-automation-platform-24/ee-supported-rhel8:latest'
+
+dependencies:
+  galaxy:
+    collections:
+      - awx.awx
+      - community.general
+      - community.vmware
+      - community.windows
+      - ansible.netcommon
+      - ansible.windows
+      - ansible.controller
+      - ansible.posix
+      - infra.aap_utilities
+      - infra.ah_configuration
+      - infra.controller_configuration
+      - infra.ee_utilities
+      - infra.leapp
+      - infra.osbuild
+
+# dependencies: 
+  ansible_core:
+    package_pip: ansible-core
+  ansible_runner:
+    package_pip: ansible-runner
+  # galaxy: requirements.yml
+  python:
+    - six
+    - psutil
+    - pytz  # for schedule_rrule lookup plugin
+    - python-dateutil >= 2.7.0  # schedule_rrule
+    - ansible.builder
+    - awxkit  # For import and export modules
+  groupestem: bindep.txt
+
+images: 
+  base_image:
+    name: registry.redhat.io/ansible-automation-platform-24/ee-supported-rhel8:latest
+    # Other available base images:
+    #   - docker.io/redhat/ubi9:latest
+    #   - quay.io/rockylinux/rockylinux:9
+    #   - quay.io/centos/centos:stream9
+    #   - registry.fedtaskproject.org/fedtask:38
+    #     (needs an account)
+
+
+# Custom package manager path for the RHEL based images
+options: 
+ package_manager_path: /usr/bin/microdnf
+
+additional_build_files: 
+    - src: /etc/ansible/ansible.cfg
+      dest: configs/.
+
+additional_build_steps: 
+  prepend_base:
+    - RUN echo This is a prepend base command!
+    # Enable Non-default stream before packages provided by it can be installed. (optional)
+    - RUN $PKGMGR module enable postgresql:15 -y
+    - RUN $PKGMGR install -y postgresql
+  prepend_galaxy:
+    - COPY _build/configs/ansible.cfg /etc/ansible/ansible.cfg
+
+  prepend_final: |
+    RUN whoami
+    RUN cat /etc/os-release
+  append_final:
+    - RUN echo This is a post-install command!
+    - RUN ls -la /etc
+
+
+# ========================================================================================================
+# ================================== Commande potentiellement utile ===========================
+# ========================================================================================================
+# https://withdevo.net/2021/10/05/uploading-an-ansible-execution-environment-to-a-private-automation-hub/
+# https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.4/html-single/managing_content_in_automation_hub/index#managing-containers-hub
+
+# nano /var/lib/awx/projects/_19__shares_list/ExecEnvBuilder/execution-environment.yml
+
+# cd /var/lib/awx/projects/_19__shares_list/ExecEnvBuilder
+
+# ansible-builder create
+
+# podman login privateHubHost.local --tls-verify=0
+
+# podman tag localhost/my_first_ee_image privateHubHost.local/my_first_ee_image:V1.3
+
+# podman push 232cfbb1a73b privateHubHost.local/my_second_ee_image:1.1 --tls-verify=0
+
+### Description: La commande la plus utile si tu modifies un fichier directement dans le dossier "/var/lib/awx/projects/" qu'utilise RHAAP pour groupenchroniser ses projets. Le propriétaire du fichier doit être le user "awx" et non "user"...  
+# chown -R awx:awx /var/lib/awx/projects/
+
+# ls -ls /usr/bin/python*
+# python3.9 -m pip install ansible-rulebook 
+# python3.11 -m pip install ansible-rulebook 

@@ -1,0 +1,28 @@
+---
+- name: Who Am I ? - Qui Suis-Je ?
+  hosts: Satellite
+  # hosts: all
+  remote_user: ansible
+
+  tasks:
+    - name: Ping my hosts
+      ansible.builtin.ping:
+
+    - name: print IPv4 ataskess
+      ansible.builtin.debug:
+        msg: "--- IPv4 ataskess: {{ ansible_default_ipv4.ataskess }}"
+
+    - name: Run whoami.
+      ansible.builtin.command: whoami
+      changed_when: false
+      register: whoami
+
+    - name: Set a fact with the user name.
+      ansible.builtin.set_fact:
+        login_user: "{{ whoami.stdout }}"
+
+    - name: Show User and Hostname
+      ansible.builtin.debug:
+        msg: "--- User for initial connection: {{ login_user }}     --- User for running task: {{ ansible_user_id }}     --- Host: {{ ansible_hostname }}     --- FQDN: {{ ansible_nodename }}"
+
+...

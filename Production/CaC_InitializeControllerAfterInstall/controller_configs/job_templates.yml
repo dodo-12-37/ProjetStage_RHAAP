@@ -1,0 +1,144 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_templates:
+#   - name: "Shares_list-JOB_Script_Mail"
+#     # new_name: "GenericJob_RunScript_SendMails"
+#     # copy_from: "Shares_list-JOB_Script_Mail"
+#     description: "Run script then send mails"
+#     execution_environment: "my_second_ee_image"
+#     job_type: "run"
+#     inventory: "Shares_list"
+#     organization: "Ville de Quebec"
+#     project: "Shares_list"
+#     playbook: "Shares_list-JOB_Script_Mail/ScriptAndMailInput.yml"
+#     credentials:
+#       - "Global SSH Ansible User Credential"
+#     forks: 0
+#     limit: ""
+#     verbosity: 3
+#     extra_vars: {}
+#     job_tags: ""
+#     force_handlers: False
+#     skip_tags: ""
+#     start_at_task: ""
+#     diff_mode: False
+#     use_fact_cache: False
+#     host_config_key: ""
+#     ask_scm_branch_on_launch: False
+#     ask_diff_mode_on_launch: False
+#     ask_variables_on_launch: False
+#     ask_limit_on_launch: False
+#     ask_tags_on_launch: False
+#     ask_skip_tags_on_launch: False
+#     ask_job_type_on_launch: False
+#     ask_verbosity_on_launch: False
+#     ask_inventory_on_launch: False
+#     ask_credential_on_launch: False
+#     ask_execution_environment_on_launch: False
+#     ask_forks_on_launch: False
+#     ask_instance_groups_on_launch: False
+#     ask_job_slice_count_on_launch: False
+#     ask_labels_on_launch: False
+#     ask_timeout_on_launch: False
+#     prevent_instance_group_fallback: False
+#     survey_enabled: True
+#     survey_spec:  # or survey: {}
+#       description: ''
+#       name: ''
+#       spec:
+#       - choices: ''
+#         default: Shares_list
+#         max: 1024
+#         min: 0
+#         new_question: true
+#         question_description: target_hosts = Shares_list
+#         question_name: Enter a comma-separated list of target hosts.
+#         required: true
+#         type: text
+#         variable: target_hosts
+#       - choices: ''
+#         default: ansible
+#         max: 1024
+#         min: 0
+#         new_question: true
+#         question_description: user_to_execute_task = ansible
+#         question_name: User to run the task.
+#         required: true
+#         type: text
+#         variable: user_to_execute_task
+#       - choices: ''
+#         default: /home/ansible/shares/cree_csv.sh
+#         max: 1024
+#         min: 0
+#         new_question: true
+#         question_description: script_path = /home/ansible/shares/cree_csv.sh
+#         question_name: Enter the path to the script.
+#         required: true
+#         type: text
+#         variable: script_path
+#       - choices: ''
+#         default: Dominique Lebrun <dominique.lebrun@email.com>
+#         max: 1024
+#         min: 0
+#         new_question: true
+#         question_description: email_recipients = Dominique Lebrun <dominique.lebrun@email.com>
+#         question_name: Enter a comma-separated list of email recipients.
+#         required: true
+#         type: text
+#         variable: email_recipients
+#       - choices:
+#         - 'true'
+#         - 'false'
+#         - ''
+#         default: 'true'
+#         max: 1024
+#         min: 0
+#         new_question: true
+#         question_description: send_email_on_success = true
+#         question_name: Send email on script success? (true/false)
+#         required: true
+#         type: multiplechoice
+#         variable: send_email_on_success
+#       - choices:
+#         - 'true'
+#         - 'false'
+#         - ''
+#         default: 'true'
+#         max: 1024
+#         min: 0
+#         new_question: true
+#         question_description: send_email_on_failure = true
+#         question_name: Send email on script failure? (true/false)
+#         required: true
+#         type: multiplechoice
+#         variable: send_email_on_failure
+#     become_enabled: False
+#     allow_simultaneous: False
+#     timeout: 0
+#     instance_groups: []
+#     job_slice_count: 1
+#     webhook_service: ""
+#     webhook_credential: ""
+#     scm_branch: ""
+#     labels:
+#       - "1er essais"
+#       - "Credential-Global SSH Ansible User Credential"
+#       - "Shares_list"
+#       - "test"
+#       - "TEST_API_Created-Object"
+#     custom_virtualenv: ""
+#     notification_templates_started:
+#       - "Notify Email to DODO"
+#     notification_templates_success:
+#       - "Notify Email to DODO"
+#     notification_templates_error:
+#       - "Notify Email to DODO"
+#     state: present
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+# controller_templates:  # À décommenter au besoin...
+
+...

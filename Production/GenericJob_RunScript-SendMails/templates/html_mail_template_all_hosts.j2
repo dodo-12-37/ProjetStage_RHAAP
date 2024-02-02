@@ -1,0 +1,92 @@
+<html lang="fr">
+
+<head>
+    <title>Résumé de l'exécution du script</title>
+    <style>
+        /*
+            La meilleur référence pour connaitre le HTML et CSS :
+
+            - HTML : https://www.w3schools.com/html/default.asp
+            - CSS : https://www.w3schools.com/css/default.asp
+        */
+
+        .success {
+            /* Couleur de fond pour le succès (vert) */
+            color: green;
+        }
+
+        .failure {
+            /* Couleur de fond pour l'échec (rouge) */
+            color: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>
+        Résumé d'exécution du script sur {{ ansible_play_hosts_all }}
+    </h1>
+    {% set success_count = 0 %}
+    {% set failure_count = 0 %}
+
+    {% for host in ansible_play_hosts_all %}
+
+        {% if hostvars[host].script_result.rc == 0 %}
+            {% set success_count = success_count + 1 %}
+        {% else %}
+            {% set failure_count = failure_count + 1 %}
+        {% endif %}
+    
+    {% endfor %}
+
+    <p><strong class="failure">Nb. d'échec total :</strong><span class="{{ 'failure' if failure_count|int > 0 }}"> {{
+            failure_count }}</span></p>
+    <p><strong class="success">Nb. de réussite total :</strong><span class="{{ 'success' if success_count|int > 0 }}">
+            {{ success_count }}</span></p>
+
+    <hr> <!-- Ligne de séparation -->
+
+    {% for host in ansible_play_hosts_all %}
+    <hr> <!-- Ligne de séparation -->
+
+    <h2 style="color: {{ 'green' if hostvars[host].script_result.rc == 0 else '#e74c3c' }}">
+        Exécution du script {{ 'Réussi' if hostvars[host].script_result.rc == 0 else 'Échoué' }} sur {{ host }}
+    </h2>
+
+    <ul>
+        <li><strong>Informations sur l'hôte</strong>
+            <ul>
+                <li><strong>Hôte :</strong> {{ host }}</li>
+                <li><strong>Adresse IP :</strong> {{ hostvars[host].ansible_default_ipv4.ataskess | default('N/A') }}</li>
+                <li><strong>groupestème d'exploitation :</strong> {{ hostvars[host].ansible_distribution }} {{ hostvars[host].ansible_distribution_version }}</li>
+                <li><strong>Architecture :</strong> {{ hostvars[host].ansible_architecture | default('N/A') }}</li>
+            </ul>
+        </li>
+
+        <li><strong>Environnement d'exécution</strong>
+            <ul>
+                <li><strong>Version Ansible :</strong> {{ hostvars[host].ansible_version | default('N/A') }}</li>
+                <li><strong>Nom du Playbook :</strong> {{ hostvars[host].ansible_play_name | default('N/A') }}</li>
+                <li><strong>Répertoire du Playbook :</strong> {{ hostvars[host].playbook_dir | default('N/A') }}</li>
+                <li><strong>Sources de l'inventaire :</strong> {{ hostvars[host].ansible_inventory_sources | default('N/A') }}</li>
+            </ul>
+        </li>
+
+        <li><strong>Détails de l'exécution du script</strong>
+            <ul>
+                <li><strong>Début du script :</strong> {{ hostvars[host].script_result.start | default('N/A') }}</li>
+                <li><strong>Fin du script :</strong> {{ hostvars[host].script_result.end | default('N/A') }}</li>
+                <li><strong>Temps écoulé du script :</strong> {{ hostvars[host].script_result.elapsed | default('N/A') }}</li>
+                <li><strong>Message du script :</strong> {{ hostvars[host].script_result.msg | default('N/A') }}</li>
+                <li><strong>Sortie du script :</strong> {{ hostvars[host].script_result.stdout | default('N/A') }}</li>
+                <li><strong>Erreur du script :</strong> {{ hostvars[host].script_result.stderr | default('N/A') }}</li>
+            </ul>
+        </li>
+    </ul>
+
+    {% endfor %}
+
+</body>
+
+</html>

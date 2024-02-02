@@ -1,0 +1,17 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_projects:  # Se trouve à être pataskl que le fichier "projects.yml".
+#   - name: "Shares_list"
+#     organization: "Ville de Quebec"
+#     wait: false
+#     interval : "{{ controller_configuration_projects_agroupenc_delay }}"
+#     timeout: 0
+#     update_project: true
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+# controller_projects:  # À décommenter au besoin...
+
+...

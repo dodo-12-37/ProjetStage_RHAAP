@@ -1,0 +1,39 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_schedules:
+#   - name: "Hebdomadaire le vendredi 12h"
+#     # new_name: "Hebdomadaire le vendredi 12h - V2"
+#     description: ""
+#     rrule: "DTSTART;TZID=America/Toronto:20231222T120000 RRULE:INTERVAL=1;FREQ=WEEKLY;BYDAY=FR"
+#     extra_data:
+#       {}
+#     inventory: "Shares_list"
+#     credentials: []
+#     scm_branch: ""
+#     execution_environment: ""
+#     forks: 0
+#     instance_groups: ""
+#     job_slice_count: 0
+#     labels: []
+#     timeout: 0
+#     job_type: ""
+#     job_tags: ""
+#     skip_tags: ""
+#     limit: ""
+#     diff_mode: false
+#     verbosity: 0
+#     unified_job_template: "$GenericJob_RunScript_SendMails"
+#     organization: ""
+#     enabled: True
+#     state: present
+#     dtstart: "2023-12-22T17:00:00Z"
+#     dtend: ""
+#     timezone: "America/Toronto"
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+# controller_schedules:  # À décommenter au besoin...
+
+...

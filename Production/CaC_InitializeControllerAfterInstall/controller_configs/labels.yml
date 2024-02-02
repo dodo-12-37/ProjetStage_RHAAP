@@ -1,0 +1,34 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_labels:
+#   - name: Dev
+#     # new_name: Dev
+#     organization: Satellite
+#     state: present
+#
+#   - name: Prod
+#     # new_name: Prod
+#     organization: Default
+#     state: present
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+controller_labels:  # À décommenter au besoin...
+  - name: "VDQ"
+    organization: "Ville de Quebec"
+
+  - name: "Global SSH Ansible User Credential"
+    organization: "Ville de Quebec"
+
+  - name: "Satellite inventory"
+    organization: "Ville de Quebec"
+
+  - name: "Playbook Générique"
+    organization: "Ville de Quebec"
+
+  - name: "Scheduled"
+    organization: "Ville de Quebec"
+
+...

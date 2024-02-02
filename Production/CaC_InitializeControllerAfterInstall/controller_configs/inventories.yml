@@ -1,0 +1,38 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_inventories:
+#   - name: "Satellite"
+#     # new_name: "Satellite V2"
+#     # copy_from: "Satellite Demo"
+#     description: "groupenc with Satellite"
+#     organization: "Ville de Quebec"
+#     instance_groups: []
+#     input_inventories: []
+#     variables: {}
+#     kind: ""
+#     host_filter: ""
+#     prevent_instance_group_fallback: False
+#     state: present
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+controller_inventories:  # À décommenter au besoin...
+  - name: "Satellite"
+    description: "groupenc with Satellite"
+    organization: "Ville de Quebec"
+    prevent_instance_group_fallback: False
+
+  - name: "satelliteHost"
+    description: "Ajoute le satelliteHost sans suffix."
+    organization: "Ville de Quebec"
+    host_filter: ""
+    prevent_instance_group_fallback: False
+
+  - name: "Satellite + satelliteHost"
+    description: "Ajoute le satelliteHost sans suffix à l'inventaire dynamique de Satellite."
+    organization: "Ville de Quebec"
+    kind: "constructed"
+
+...

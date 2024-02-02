@@ -1,0 +1,83 @@
+---
+controller_workflows:  # Nom de la variable parent.
+  - name: "|PROD|-host2119:taskQaction"
+    description: "TOUS LES JOURS aux 30 minutes de 6h00 à 23h59 (AAP)"
+    organization: "Ville de Quebec"
+    state: "present"
+    limit: "host2119"
+    simplified_workflow_nodes:
+      - identifier: "Node100"
+        workflow_job_template: "|PROD|-host2119:taskQaction"
+        unified_job_template: "|PROD|-GenericJob_RunScript-SendMails"
+        organization: "Ville de Quebec"
+        all_parents_must_converge: "false"
+        extra_data:
+          email_recipients: ""
+          script_path: "/home/folders/script/groupetasknv taskqaction1r"
+          send_email_on_failure: "true"
+          send_email_on_success: "false"
+          target_hosts: "host2119"
+          user_to_execute_task: "user"
+        success_nodes: []
+        failure_nodes: []
+        always_nodes: ['Node200', 'Node201']
+      - identifier: "Node200"
+        workflow_job_template: "|PROD|-host2119:taskQaction"
+        unified_job_template: "|PROD|-GenericJob_RunScript-SendMails"
+        organization: "Ville de Quebec"
+        all_parents_must_converge: "false"
+        extra_data:
+          email_recipients: ""
+          script_path: "/home/folders/script/groupeat taskaction2c"
+          send_email_on_failure: "true"
+          send_email_on_success: "false"
+          target_hosts: "host2119"
+          user_to_execute_task: "user"
+        success_nodes: []
+        failure_nodes: []
+        always_nodes: []
+      - identifier: "Node201"
+        workflow_job_template: "|PROD|-host2119:taskQaction"
+        unified_job_template: "|PROD|-GenericJob_RunScript-SendMails"
+        organization: "Ville de Quebec"
+        all_parents_must_converge: "false"
+        extra_data:
+          email_recipients: ""
+          script_path: "/home/folders/script/groupetasknv taskqaction2r"
+          send_email_on_failure: "true"
+          send_email_on_success: "false"
+          target_hosts: "host2119"
+          user_to_execute_task: "user"
+        success_nodes: []
+        failure_nodes: []
+        always_nodes: ['Node310']
+      - identifier: "Node310"
+        workflow_job_template: "|PROD|-host2119:taskQaction"
+        unified_job_template: "|PROD|-GenericJob_RunScript-SendMails"
+        organization: "Ville de Quebec"
+        all_parents_must_converge: "false"
+        extra_data:
+          email_recipients: ""
+          script_path: "/home/folders/script/groupetasknv taskqaction1r"
+          send_email_on_failure: "true"
+          send_email_on_success: "false"
+          target_hosts: "host2119"
+          user_to_execute_task: "user"
+        success_nodes: []
+        failure_nodes: []
+        always_nodes: []
+    ask_variables_on_launch: "false"
+    allow_simultaneous: "false"
+    scm_branch: "main"
+    webhook_service: ""
+    ask_tags_on_launch: "false"
+    labels:
+      - "VDQ"
+      - "Playbook Générique"
+      - "|PROD|-"
+    survey_enabled: false
+
+
+
+
+...

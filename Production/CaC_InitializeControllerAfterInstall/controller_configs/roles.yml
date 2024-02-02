@@ -1,0 +1,83 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_roles:
+#   # Role sans liste
+#   - user: TEST-Role_sans_liste
+#     team: team
+#     role: admin
+#     target_team: team
+#     inventorie: inventory
+#     job_template: job_template
+#     workflow: workflow
+#     credential: credential
+#     organization: organization
+#     lookup_organization: organization
+#     project: project
+#     instance_groups: []
+#     state: present
+
+#   # Role avec liste
+#   - users: 
+#     - TEST-Role_avec_liste
+#     - TEST-Role_avec_liste2
+#     teams: 
+#       - team1
+#       - team2
+#     roles:
+#       - admin
+#       - read
+#       - member
+#       - execute
+#       - adhoc
+#       - update
+#       - use
+#       - auditor
+#       - project_admin
+#       - inventory_admin
+#       - credential_admin
+#       - workflow_admin
+#       - notification_admin
+#       - job_template_admin
+#     target_teams:
+#       - team1
+#       - team2
+#     inventories:
+#       - inventory1
+#       - inventory2
+#     job_templates:
+#       - job_template1
+#       - job_template2
+#     workflows:
+#       - workflow1
+#       - workflow2
+#     credentials:
+#       - credential1
+#       - credential2
+#     organizations:
+#       - organization1
+#       - organization2
+#     lookup_organization: organization1
+#     projects:
+#       - project1
+#       - project2
+#     instance_groups: []
+#     state: present
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+controller_roles:  # À décommenter au besoin...
+  - user: "User"
+    organization: "Ville de Quebec"
+    role: admin
+    state: present
+
+  - user: "API-AutomatedUser"
+    organization: "Ville de Quebec"
+    roles:
+      - read
+      - execute
+    state: present
+
+...

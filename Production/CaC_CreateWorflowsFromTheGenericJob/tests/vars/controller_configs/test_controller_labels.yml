@@ -1,0 +1,21 @@
+---
+controller_labels:  # Nom de la variable parent.
+  - name: "VDQ"
+    organization: "Ville de Quebec"
+
+  - name: "Global SSH Ansible User Credential"
+    organization: "Ville de Quebec"
+
+  - name: "Playbook Générique"
+    organization: "Ville de Quebec"
+
+  - name: "Scheduled"
+    organization: "Ville de Quebec"
+
+  - name: "Workflow"
+    organization: "Ville de Quebec"
+
+  - name: "|PROD|-"
+    organization: "Ville de Quebec"
+
+...

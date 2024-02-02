@@ -1,0 +1,24 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_groups:
+#   - name: "Shares_list"
+#     # new_name: "Shares_list V2"
+#     description: ""
+#     inventory: "Shares_list"
+#     variables: {}
+#     hosts:
+#       - satelliteHost.local
+#       - privateHubHost.local
+#       - host2601.local
+#     children: []
+#     preserve_existing_hosts: false
+#     preserve_existing_children: false
+#     state: present
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+# controller_groups:  # À décommenter au besoin...
+
+...

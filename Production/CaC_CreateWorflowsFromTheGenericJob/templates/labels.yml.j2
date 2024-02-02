@@ -1,0 +1,37 @@
+---
+{# #
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_labels:
+#   - name: Dev
+#     # new_name: Dev
+#     organization: Satellite
+#     state: present
+#
+#   - name: Prod
+#     # new_name: Prod
+#     organization: Default
+#     state: present
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+#}
+controller_labels:  # Nom de la variable parent.
+  - name: "VDQ"
+    organization: "{{ global_vars.organization }}"
+
+  - name: "Global SSH Ansible User Credential"
+    organization: "{{ global_vars.organization }}"
+
+  - name: "Playbook Générique"
+    organization: "{{ global_vars.organization }}"
+
+  - name: "Scheduled"
+    organization: "{{ global_vars.organization }}"
+
+  - name: "Workflow"
+    organization: "{{ global_vars.organization }}"
+
+  - name: "{{ global_vars.name_prefix }}"
+    organization: "{{ global_vars.organization }}"
+
+...

@@ -1,0 +1,53 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_inventory_sources:
+#   - name: "Satellite"
+#     # new_name: "Satellite V2"
+#     description: "groupenc with Satellite"
+#     inventory: "Satellite"
+#     organization: "Ville de Quebec"
+#     source: "satellite6"
+#     source_path: ""
+#     source_vars:
+#       validate_certs: false
+#     enabled_var: ""
+#     enabled_value: ""
+#     host_filter: ""
+#     limit: ""
+#     credential: "Satellite-dodo"
+#     execution_environment: ""
+#     overwrite: "True"
+#     overwrite_vars: ""
+#     custom_virtualenv: ""
+#     timeout: 0
+#     verbosity: ""
+#     update_on_launch: "True"
+#     update_cache_timeout: 0
+#     source_project: ""
+#     scm_branch: ""
+#     state: present
+#     notification_templates_started:
+#       - "Notify Email to DODO"
+#     notification_templates_success:
+#       - "Notify Email to DODO"
+#     notification_templates_error:
+#       - "Notify Email to DODO"
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+controller_inventory_sources:  # À décommenter au besoin...
+  - name: "Satellite"
+    description: "groupenc with Satellite"
+    organization: "Ville de Quebec"
+    source: "satellite6"
+    source_vars:
+      validate_certs: false
+    host_filter: "^(?!virt-).*$"
+    inventory: "Satellite"
+    update_on_launch: "True"
+    overwrite: "False"
+    credential: "Satellite-dodo"
+    
+...

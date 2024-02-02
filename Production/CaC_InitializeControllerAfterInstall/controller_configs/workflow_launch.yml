@@ -1,0 +1,20 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_workflow_launch_jobs:
+#   - name: test-template-1
+#     organization: "Ville de Quebec"
+#     inventory: "Shares_list"
+#     limit: ""
+#     scm_branch: ""
+#     extra_vars: {}
+#     wait: false
+#     interval: 2
+#     timeout: 0
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+# controller_workflow_launch_jobs:  # À décommenter au besoin...
+
+...

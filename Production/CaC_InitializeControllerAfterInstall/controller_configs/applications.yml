@@ -1,0 +1,20 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_applications:
+#   - name: "controller Config Default Application"
+#     # new_name: "controller Config Default Application V2"
+#     organization: "Default"
+#     description: "Generic application, which can be used for oauth tokens"
+#     authorization_grant_type: "password"
+#     client_type: "confidential"
+#     redirect_uris: ""
+#     skip_authorization: "false"
+#     state: "present"
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+# controller_applications:  # À décommenter au besoin...
+
+...

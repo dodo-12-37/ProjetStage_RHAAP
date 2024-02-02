@@ -1,0 +1,121 @@
+---
+workflows_vars:
+  # - name: Workflow_1
+  #   description: "1- Creer une liste de tous les shares cifs et nfs de nos serveurs. satelliteHost.local"
+  #   job_vars:
+  #     target_hosts: satelliteHost.local
+  #     user_to_execute_task: user
+  #     script_path: /home/ansible/shares/cree_csv.sh
+  #     email_recipients: Dominique Lebrun <dominique.lebrun@email.com>
+  #     send_email_on_success: "true"
+  #     send_email_on_failure: "false"
+  #   schedules:
+  #     - name: Every day =Workflow
+  #       description: Every day
+  #       starting_hour: "08:00:00"
+  #       rrules_params: 
+  #         - frequency: 'day'
+  #           interval: 1
+  #         - frequency: 'day'
+  #           interval: 1
+  #           byweekday: 'sunday'
+  #           include: False
+  #       # rrule: "DTSTART;TZID=UTC:20220430T103045 RRULE:FREQ=MINUTELY;INTERVAL=5 EXRULE:FREQ=MINUTELY;INTERVAL=5;BYDAY=MO;BYHOUR=17,18"
+
+  # - name: Workflow_2
+  #   description: "2- Creer une liste de tous les shares cifs et nfs de nos serveurs. satelliteHost.local"
+  #   job_vars:
+  #     target_hosts: privateHubHost
+  #     user_to_execute_task: user
+  #     script_path: /home/ansible/shares/cree_csv.sh
+  #     email_recipients: ""
+  #     send_email_on_success: "true"
+  #     send_email_on_failure: "true"
+  #   schedules:
+  #     - name: Weekly_Schedule =Workflow
+  #       description: Run weekly on Monday and Friday
+  #       starting_hour: "08:00:00"
+  #       rrules_params: 
+  #         - frequency: 'day'
+  #           interval: 1
+  #         - frequency: 'day'
+  #           interval: 1
+  #           byweekday: 'sunday'
+  #           include: False
+  #       # rrule: "DTSTART;TZID=America/Toronto:20240120T183000 RRULE:INTERVAL=1;FREQ=WEEKLY;BYDAY=MO,FR"
+
+  # - name: Workflow_3
+  #   description: "3- Creer une liste de tous les shares cifs et nfs de nos serveurs. satelliteHost.local"
+  #   job_vars:
+  #     target_hosts: host2601
+  #     user_to_execute_task: user
+  #     script_path: /home/ansible/shares/cree_csv.sh
+  #     email_recipients: Dominique Lebrun <dominique.lebrun@email.com>
+  #     send_email_on_success: "false"
+  #     send_email_on_failure: "true"
+  #   schedules:
+  #     - name: "Hebdomadaire à 13h00 =Workflow"
+  #       description: "Hebdomadaire à 13h00"
+  #       starting_hour: "08:00:00"
+  #       rrules_params: 
+  #         - frequency: 'day'
+  #           interval: 1
+  #         - frequency: 'day'
+  #           interval: 1
+  #           byweekday: 'sunday'
+  #           include: False
+  #       # rrule: "DTSTART;TZID=America/Toronto:20240120T130000 RRULE:INTERVAL=1;FREQ=DAILY;COUNT=10"
+
+  - name: host2119:taskQaction
+    description: "TOUS LES JOURS aux 30 minutes de 6h00 à 23h59 (AAP)"
+    work_vars:
+      target_hosts: host2119
+      user_to_execute_task: user
+      email_recipients: ""
+      send_email_on_success: "false"
+      send_email_on_failure: "true"
+    node_vars:
+      - name: Node100
+        job_vars:
+          # target_hosts: host2119
+          # user_to_execute_task: user
+          script_path: /home/folders/script/groupetasknv taskqaction1r
+          # email_recipients: ""
+          # send_email_on_success: "false"
+          # send_email_on_failure: "true"
+        success_nodes: []
+        failure_nodes: []
+        always_nodes:
+          - Node200
+          - Node201
+      - name: Node200
+        job_vars:
+          script_path: /home/folders/script/groupeat taskaction2c
+        success_nodes: []
+        failure_nodes: []
+        always_nodes: []
+      - name: Node201
+        job_vars:
+          script_path: /home/folders/script/groupetasknv taskqaction2r
+        success_nodes: []
+        failure_nodes: []
+        always_nodes:
+          - Node310
+      - name: Node310
+        job_vars:
+          script_path: /home/folders/script/groupetasknv taskqaction1r
+        success_nodes: []
+        failure_nodes: []
+        always_nodes: []
+    schedules:
+      - name: host2119:taskQaction-scheduled
+        description: "TOUS LES JOURS aux 30 minutes de 6h00 à 23h59 (AAP)"
+        starting_hour: "06:00:00"
+        rrules_params:
+          - frequency: 'day'
+            interval: 1
+            byminute: '0, 30'
+            byhour: '6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 18, 20, 21, 22, 23'
+
+
+...

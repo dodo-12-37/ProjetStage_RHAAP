@@ -1,0 +1,39 @@
+---
+#
+# Les premiers items en commentaires représente un exemple de la structure des données complète pour créer cette objet.
+#
+# controller_launch_jobs:
+#   - name: test-template-1
+#     job_type: "run"
+#     inventory: "Shares_list"
+#     organization: "Ville de Quebec"
+#     credentials:
+#       - "Global SSH Ansible User Credential"
+#     extra_vars: {}
+#     limit: ""
+#     tags: ""
+#     scm_branch: ""
+#     skip_tags: ""
+#     verbosity: 0
+#     diff_mode: false
+#     credential_passwords: ""
+#     execution_environment: "my_second_ee_image"
+#     forks: 0
+#     instance_groups: []
+#     job_slice_count: 1
+#     labels:
+#       - "1er essais"
+#       - "Credential-Global SSH Ansible User Credential"
+#       - "Shares_list"
+#       - "test"
+#       - "TEST_API_Created-Object"
+#     job_timeout: 0
+#     wait: false
+#     interval: 2
+#     timeout: 0
+#
+# -------------------------------------------------------------------------------------------------------------------------------
+
+# controller_launch_jobs:  # À décommenter au besoin...
+
+...
