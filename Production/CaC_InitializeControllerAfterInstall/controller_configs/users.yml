@@ -19,10 +19,10 @@
 
 controller_user_accounts:  # À décommenter au besoin...
   - username: "User"
-    password: "{{ vault_users_passwords.user_DenisDesmarais }}"
+    password: "{{ vault_users_passwords.user_User2 }}"
     email: "User@email.com"
-    first_name: "Denis"
-    last_name: "Desmarais"
+    first_name: "User2"
+    last_name: "User2"
     auditor: "False"
     superuser: "True"
     update_secrets: true
@@ -30,7 +30,7 @@ controller_user_accounts:  # À décommenter au besoin...
 
   - username: "API-AutomatedUser"
     password: "{{ vault_users_passwords.user_APIAutomatedUser }}"
-    email: "dominique.lebrun@email.com"
+    email: "User@email.com"
     first_name: "Automated"
     last_name: "User"
     auditor: "False"
@@ -39,7 +39,7 @@ controller_user_accounts:  # À décommenter au besoin...
 
   - username: "test-postinstall-automatique"
     password: "{{ vault_users_passwords.user_APIAutomatedUser }}"
-    email: "dominique.lebrun@email.com"
+    email: "User@email.com"
     first_name: "postinstall"
     last_name: "automatique"
     auditor: "True"

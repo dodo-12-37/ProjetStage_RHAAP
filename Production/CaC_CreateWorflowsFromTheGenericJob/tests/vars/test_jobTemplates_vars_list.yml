@@ -6,7 +6,7 @@ jobTemplates_vars:
   #     target_hosts: satelliteHost.local
   #     user_to_execute_task: user
   #     script_path: /home/ansible/shares/cree_csv.sh
-  #     email_recipients: Dominique Lebrun <dominique.lebrun@email.com>
+  #     email_recipients: User <User@email.com>
   #     send_email_on_success: "true"
   #     send_email_on_failure: "false"
   #   schedules:
@@ -55,7 +55,7 @@ jobTemplates_vars:
   #     target_hosts: host2601
   #     user_to_execute_task: user
   #     script_path: /home/ansible/shares/cree_csv.sh
-  #     email_recipients: Dominique Lebrun <dominique.lebrun@email.com>
+  #     email_recipients: User <User@email.com>
   #     send_email_on_success: "true"
   #     send_email_on_failure: "true"
   #   schedules:
@@ -78,7 +78,7 @@ jobTemplates_vars:
       target_hosts: satelliteHost.local
       user_to_execute_task: user
       script_path: /home/ansible/shares/cree_csv.sh
-      email_recipients: dominique.lebrun@email.com
+      email_recipients: User@email.com
       send_email_on_success: "true"
       send_email_on_failure: "true"
     schedules:

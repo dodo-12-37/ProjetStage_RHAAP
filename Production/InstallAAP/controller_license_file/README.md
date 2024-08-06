@@ -21,7 +21,7 @@ Pour se connecter à *AzureVDQ*, ne pas oublier de définir le *Personal Access 
 ```ini
 controller_postinstall='true'
 controller_license_file='controller_license_file/file.zip'
-controller_postinstall_repo_url = 'https://vdq:{{ vault_password_azureVDQ__RHAAP_DenisDesmarais }}@dev.azure.com/vdq/RHAAP/_git/CaC_InitializeControllerAfterInstall'
+controller_postinstall_repo_url = 'https://vdq:{{ vault_password_azureVDQ__RHAAP_User2 }}@dev.azure.com/vdq/RHAAP/_git/CaC_InitializeControllerAfterInstall'
 controller_postinstall_dir='/tmp/RHAAP-PostInstall/'
 ```
 

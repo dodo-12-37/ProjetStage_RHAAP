@@ -65,8 +65,8 @@ controller_postinstall='true'
 controller_license_file='controller_license_file/file.zip'
 ; controller_postinstall_repo_url = 'https://vdq@dev.azure.com/vdq/RHAAP/_git/CaC_InitializeControllerAfterInstall'
 ; controller_postinstall_repo_url = 'https://vdq:mot_de_passe@dev.azure.com/vdq/RHAAP/_git/CaC_InitializeControllerAfterInstall'
-controller_postinstall_repo_url = 'https://vdq:{{ vault_password_azureVDQ__RHAAP_DominiqueLebrun }}@dev.azure.com/vdq/RHAAP/_git/CaC_InitializeControllerAfterInstall'
-; controller_postinstall_repo_url = 'https://vdq:{{ vault_password_azureVDQ__RHAAP_DenisDesmarais }}@dev.azure.com/vdq/RHAAP/_git/CaC_InitializeControllerAfterInstall'
+controller_postinstall_repo_url = 'https://vdq:{{ vault_password_azureVDQ__RHAAP_User }}@dev.azure.com/vdq/RHAAP/_git/CaC_InitializeControllerAfterInstall'
+; controller_postinstall_repo_url = 'https://vdq:{{ vault_password_azureVDQ__RHAAP_User2 }}@dev.azure.com/vdq/RHAAP/_git/CaC_InitializeControllerAfterInstall'
 controller_postinstall_dir='/tmp/RHAAP-PostInstall/'
 
 

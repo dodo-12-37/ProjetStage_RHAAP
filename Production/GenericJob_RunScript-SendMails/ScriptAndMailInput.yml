@@ -32,7 +32,7 @@
 
     - name: email_recipients
       prompt: "Entrez une liste d'adresses email séparées par des virgules. (User@email.com)"
-      default: "Denis Desmarais <User@email.com>"
+      default: "User2 <User@email.com>"
       # default: ""
       private: false
 

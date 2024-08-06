@@ -8,7 +8,7 @@ controller_schedules:   # Nom de la variable parent.
     limit: ""
     rrule: "DTSTART;TZID=America/Toronto:20240125T000000 RRULE:FREQ=MINUTELY;INTERVAL=30"
     extra_data:
-      email_recipients: "dominique.lebrun@email.com"
+      email_recipients: "User@email.com"
       script_path: "/home/ansible/shares/cree_csv.sh"
       send_email_on_failure: "true"
       send_email_on_success: "true"

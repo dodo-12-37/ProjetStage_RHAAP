@@ -17,7 +17,7 @@
 #       use_tls: False
 #       password: ""
 #       username: ""
-#       recipients: ['Dominique.Lebrun@email.com', 'User@email.com']
+#       recipients: ['User@email.com', 'User@email.com']
 #     messages:
 #       success:
 #         body: '{"fields": {"project": {"id": "11111"},"summary": "Lab {  { job.status
@@ -28,12 +28,12 @@
 #   - name: "Notify Email to DODO"
 #     copy_from: "Notify Email to D&D"
 #     notification_configuration:
-#       recipients: ['Dominique.Lebrun@email.com']
+#       recipients: ['User@email.com']
 #
 # -------------------------------------------------------------------------------------------------------------------------------
 
 controller_notifications:  # À décommenter au besoin...
-  - name: "Notify Email to Denis"
+  - name: "Notify Email to User2"
     organization: "Ville de Quebec"
     notification_type: "email"
     notification_configuration:
